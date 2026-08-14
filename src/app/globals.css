@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +25,42 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.vine {
+  transition:
+    transform 700ms ease,
+    opacity 500ms ease;
+}
+
+.vine-leaf {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 700ms ease;
+}
+
+/* Slight movement of the whole vines */
+header:hover .vine-left {
+  transform: translateX(4px) rotate(1deg);
+}
+
+header:hover .vine-right {
+  transform: scaleX(-1) translateX(4px) rotate(1deg);
+}
+
+/* Individual leaf movement */
+header:hover .vine-leaf-1 {
+  transform: rotate(8deg) translateY(-2px);
+}
+
+header:hover .vine-leaf-2 {
+  transform: rotate(-10deg) translateY(2px);
+}
+
+header:hover .vine-leaf-3 {
+  transform: rotate(12deg) translateY(-1px);
+}
+
+header:hover .vine-leaf-4 {
+  transform: rotate(-8deg) translateY(2px);
 }
