@@ -12,14 +12,6 @@ import Sparkle from "./components/Sparkle";
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#fff8fc] text-[#3f3040] transition-colors duration-500 dark:bg-[#0d0715] dark:text-[#f8efff]">
-      {/* Background decoration */}
-      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute -left-24 top-24 h-96 w-96 rounded-full bg-pink-200/40 blur-3xl transition-colors duration-500 dark:bg-purple-800/20" />
-
-        <div className="absolute -right-24 top-[40%] h-120 w-120 rounded-full bg-purple-200/30 blur-3xl transition-colors duration-500 dark:bg-fuchsia-900/20" />
-
-        <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-rose-200/30 blur-3xl transition-colors duration-500 dark:bg-violet-800/20" />
-      </div>
 
       {/* Pixie dust */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">

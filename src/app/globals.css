@@ -10,8 +10,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-sans: var(--font-lora);
+  --font-serif: var(--font-fleur);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,43 +25,267 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-lora), serif;
+  font-style: italic;
 }
 
-.vine {
-  transition:
-    transform 700ms ease,
-    opacity 500ms ease;
+/* =========================
+   Navigation vine
+   ========================= */
+
+.nav-vine {
+  color: #8873a2;
 }
 
-.vine-leaf {
+.dark .nav-vine {
+  color: #dbb5ff;
+}
+
+/* Whole plant gently moves */
+.nav-vine-plant {
+  transform-box: fill-box;
+  transform-origin: 100% 0%;
+
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-vine-trigger:hover .nav-vine-plant {
+  transform: rotate(1.5deg) translate3d(-3px, 2px, 0);
+}
+
+/* Vine stems */
+.vine-stem {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.vine-stem-thin {
+  stroke-width: 1.7;
+  opacity: 0.8;
+}
+
+.vine-tendril {
+  stroke-width: 1.4;
+  opacity: 0.65;
+}
+
+/* =========================
+   Falling leaves
+   ========================= */
+
+.vine-falling-leaf {
+  opacity: 0;
+
   transform-box: fill-box;
   transform-origin: center;
-  transition: transform 700ms ease;
+
+  animation-name: vine-leaf-fall;
+  animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
+  animation-fill-mode: forwards;
 }
 
-/* Slight movement of the whole vines */
-header:hover .vine-left {
-  transform: translateX(4px) rotate(1deg);
+/*
+  The duration and delay are supplied inline
+  by Vine.tsx for each individual leaf.
+*/
+@keyframes vine-leaf-fall {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate3d(0, -2px, 0)
+      rotate(var(--leaf-start-rotate));
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+
+    transform:
+      translate3d(var(--leaf-mid-x), 45px, 0)
+      rotate(75deg);
+  }
+
+  55% {
+    opacity: 1;
+
+    transform:
+      translate3d(var(--leaf-end-x), 90px, 0)
+      rotate(145deg);
+  }
+
+  78% {
+    opacity: 0.8;
+
+    transform:
+      translate3d(var(--leaf-mid-x), 130px, 0)
+      rotate(210deg);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(var(--leaf-end-x), 175px, 0)
+      rotate(290deg);
+  }
 }
 
-header:hover .vine-right {
-  transform: scaleX(-1) translateX(4px) rotate(1deg);
+/* =========================
+   Reduced motion
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-vine-plant {
+    transition: none;
+  }
+
+  .nav-vine-trigger:hover .nav-vine-plant {
+    transform: none;
+  }
+
+  .vine-falling-leaf {
+    animation: none;
+    display: none;
+  }
 }
 
-/* Individual leaf movement */
-header:hover .vine-leaf-1 {
-  transform: rotate(8deg) translateY(-2px);
+/* =========================
+   Music sparkle animation
+   ========================= */
+
+.music-sparkle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  z-index: 20;
+
+  color: #f472b6;
+
+  font-size: 0.65rem;
+  line-height: 1;
+
+  opacity: 0;
+
+  will-change: transform, opacity;
+
+  animation-name: music-sparkle-float;
+  animation-duration: 2.8s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
 }
 
-header:hover .vine-leaf-2 {
-  transform: rotate(-10deg) translateY(2px);
+.dark .music-sparkle {
+  color: #e879f9;
 }
 
-header:hover .vine-leaf-3 {
-  transform: rotate(12deg) translateY(-1px);
+/* Upper-left */
+.music-sparkle-1 {
+  --sparkle-x: -21px;
+  --sparkle-y: -23px;
+
+  animation-delay: 0s;
 }
 
-header:hover .vine-leaf-4 {
-  transform: rotate(-8deg) translateY(2px);
+/* Upper-right */
+.music-sparkle-2 {
+  --sparkle-x: 22px;
+  --sparkle-y: -18px;
+
+  animation-delay: 0.8s;
 }
+
+/* Lower-right */
+.music-sparkle-3 {
+  --sparkle-x: 20px;
+  --sparkle-y: 19px;
+
+  animation-delay: 1.6s;
+}
+
+/* Optional fourth sparkle for desktop */
+.music-sparkle-4 {
+  --sparkle-x: -20px;
+  --sparkle-y: 18px;
+
+  animation-delay: 2.1s;
+}
+
+@keyframes music-sparkle-float {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.2)
+      rotate(0deg);
+  }
+
+  12% {
+    opacity: 0.9;
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  65% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(
+        calc(-50% + var(--sparkle-x)),
+        calc(-50% + var(--sparkle-y))
+      )
+      scale(1)
+      rotate(90deg);
+  }
+}
+
+/* Slightly slower/cheaper animation on mobile */
+@media (max-width: 767px) {
+  .music-sparkle {
+    font-size: 0.6rem;
+    animation-duration: 3.2s;
+  }
+
+  .music-sparkle-4 {
+    display: none;
+  }
+}
+
+/* =========================
+   Reduced motion
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-vine-plant {
+    transition: none;
+  }
+
+  .nav-vine-trigger:hover .nav-vine-plant {
+    transform: none;
+  }
+
+  .vine-falling-leaf {
+    animation: none;
+    display: none;
+  }
+
+  .music-sparkle {
+    animation: none;
+    display: none;
+  }
+}
+

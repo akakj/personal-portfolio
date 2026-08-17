@@ -5,7 +5,7 @@ import Sparkle from "../Sparkle";
 export default function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-6 py-28">
-      <SectionHeading number="03" title="Selected projects" />
+      <SectionHeading number="03" title="My brewery" />
 
       <div className="grid gap-6 lg:grid-cols-3">
         {projects.map((project, index) => (
@@ -63,15 +63,6 @@ export default function Projects() {
             </div>
           </article>
         ))}
-      </div>
-
-      <div className="mt-10 text-center">
-        <a
-          href="#"
-          className="text-sm font-medium text-pink-600 underline decoration-1 underline-offset-8 dark:text-purple-300"
-        >
-          View all projects
-        </a>
       </div>
     </section>
   );

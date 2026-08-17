@@ -13,16 +13,15 @@ export default function Hero() {
           Software Developer
         </div>
 
-        <h1 className="font-serif text-5xl font-medium leading-[1.08] tracking-tight sm:text-6xl lg:text-8xl">
-          Hi, I&apos;m{" "}
-          <span className="text-pink-500 italic dark:text-fuchsia-300">
-            Your Name.
+        <h1 className="font-serif text-5xl font-medium leading-[1.08] tracking-tight sm:text-6xl lg:text-8xl text-[#492f3e] dark:text-[#fde9ff]">
+          Hello there, I'm{" "}
+          <span className="text-[#df64b3] italic dark:text-fuchsia-300">
+            Anna
           </span>
         </h1>
 
         <h2 className="mt-5 max-w-3xl text-2xl font-light leading-relaxed text-[#795c76] sm:text-3xl dark:text-purple-200">
-          I create thoughtful digital experiences where clean code meets
-          imaginative design.
+          I love building accessible, polished, and genuinely useful web applications
         </h2>
 
         <p className="mt-7 max-w-2xl text-base leading-8 text-[#806b7d] sm:text-lg dark:text-purple-300/80">
@@ -62,13 +61,6 @@ export default function Hero() {
             className="transition hover:scale-110"
           >
             <LinkedInIcon />
-          </a>
-
-          <a
-            href="mailto:hello@example.com"
-            className="text-sm transition hover:opacity-70"
-          >
-            hello@example.com
           </a>
         </div>
       </div>
