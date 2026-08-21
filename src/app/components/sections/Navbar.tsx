@@ -2,8 +2,8 @@
 
 import { useRef, useState } from "react";
 
-import MobileNavbar from "../MobileNavBar";
-import DesktopNavbar from "../DesktopNavBar";
+import MobileNavbar from "../navbar/MobileNavBar";
+import DesktopNavbar from "../navbar/DesktopNavBar";
 
 export default function Navbar() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -30,12 +30,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <audio
-        ref={audioRef}
-        src="/background_music.mp3"
-        loop
-        preload="none"
-      />
+      <audio ref={audioRef} src="/background_music.mp3" loop preload="none" />
 
       <MobileNavbar
         isMusicPlaying={isMusicPlaying}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Fleur_De_Leah, Lora } from "next/font/google";
 import "./globals.css";
 
-import ThemeProvider from "../app/components/ThemeProvider";
+import ThemeProvider from "./components/ui/ThemeProvider";
 
 const fleurDeLeah = Fleur_De_Leah({
   weight: "400",

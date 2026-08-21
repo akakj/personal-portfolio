@@ -1,4 +1,4 @@
-import SectionHeading from "../SectionHeading";
+import SectionHeading from "../ui/SectionHeading";
 
 export default function About() {
   return (
@@ -8,7 +8,7 @@ export default function About() {
       <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
         <div className="space-y-5 text-lg leading-8 text-[#755f72] dark:text-purple-200/80">
           <p>
-            I&apos;m a software developer who enjoys turning ideas into
+            I&apos;m a full-stack developer who enjoys turning ideas into
             practical and polished digital products. My interests span frontend
             development, backend systems, databases, APIs, and user experience.
           </p>
@@ -20,9 +20,7 @@ export default function About() {
           </p>
 
           <p>
-            Outside of development, you can add more personality here — your
-            interests, hobbies, what motivates you, or what you&apos;re
-            currently learning.
+            Outside of development, I like to learn more stuff about building
           </p>
         </div>
 

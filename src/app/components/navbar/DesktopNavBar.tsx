@@ -3,9 +3,9 @@
 import { useTheme } from "@teispace/next-themes";
 
 import { navigation } from "@/app/data/info";
-import Sparkle from "./Sparkle";
-import Vine from "./Vine";
-import OrnamentalButton from "./OrnamentalButton";
+import Sparkle from "../ui/Sparkle";
+import Vine from "../ui/Vine";
+import OrnamentalButton from "../ui/OrnamentalButton";
 
 import {
   MusicNotesIcon,
@@ -17,8 +17,6 @@ type DesktopNavbarProps = {
   isMusicPlaying: boolean;
   onToggleMusic: () => void;
 };
-
-
 
 export default function DesktopNavbar({
   isMusicPlaying,
@@ -59,14 +57,13 @@ export default function DesktopNavbar({
           py-4
         "
       >
-
-<a
-  href="#home"
-  className="group relative flex items-center px-2 py-1"
-  aria-label="Home"
->
-  <span
-    className="
+        <a
+          href="#home"
+          className="group relative flex items-center px-2 py-1"
+          aria-label="Home"
+        >
+          <span
+            className="
       font-serif
       text-2xl
       font-medium
@@ -74,14 +71,14 @@ export default function DesktopNavbar({
       text-[#4d3a4d]
       dark:text-purple-100
     "
-  >
-    Anna
-  </span>
+          >
+            Anna
+          </span>
 
-  {/* Small sparkle */}
-  <Sparkle
-    aria-hidden="true"
-    className="
+          {/* Small sparkle */}
+          <Sparkle
+            aria-hidden="true"
+            className="
       absolute
       -right-1
       top-0
@@ -94,14 +91,14 @@ export default function DesktopNavbar({
       group-hover:scale-125
       dark:text-fuchsia-300/70
     "
-  />
+          />
 
-  {/* Subtle curved flourish */}
-  <svg
-    aria-hidden="true"
-    viewBox="0 0 100 12"
-    fill="none"
-    className="
+          {/* Subtle curved flourish */}
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 100 12"
+            fill="none"
+            className="
       absolute
       -bottom-1
       left-1/2
@@ -112,31 +109,52 @@ export default function DesktopNavbar({
       text-pink-400/45
       dark:text-fuchsia-300/40
     "
-  >
-    <path
-      d="M5 7 C24 2 38 10 52 6 C67 2 79 8 95 4"
-      stroke="currentColor"
-      strokeWidth="1"
-      strokeLinecap="round"
-    />
-  </svg>
-</a>
+          >
+            <path
+              d="M5 7 C24 2 38 10 52 6 C67 2 79 8 95 4"
+              stroke="currentColor"
+              strokeWidth="1"
+              strokeLinecap="round"
+            />
+          </svg>
+        </a>
         {/* Navigation */}
         <div className="flex items-center gap-4 text-sm">
           {navigation.map((item, index) => (
-            <div
-              key={item.name}
-              className="flex items-center gap-4"
-            >
+            <div key={item.name} className="group flex items-center gap-4">
               <a
                 href={item.href}
                 className="
-                  text-[#4d3a4d]
-                  transition-colors
-                  hover:text-pink-600
-                  dark:text-purple-200
-                  dark:hover:text-white
-                "
+          relative
+          rounded-full
+          border
+          border-transparent
+          px-3
+          py-1.5
+          text-[#4d3a4d]
+
+          transition-all
+          duration-300
+          ease-out
+
+          hover:-translate-y-px
+          hover:bg-pink-100/70
+          hover:text-pink-600
+
+          focus-visible:-translate-y-px
+          focus-visible:border-pink-300/50
+          focus-visible:bg-pink-100/45
+          focus-visible:text-pink-600
+          focus-visible:outline-none
+
+          dark:text-purple-200
+          dark:hover:bg-purple-300/5
+          dark:hover:text-fuchsia-100
+
+          dark:focus-visible:border-fuchsia-300/25
+          dark:focus-visible:bg-purple-300/10
+          dark:focus-visible:text-fuchsia-100
+        "
               >
                 {item.name}
               </a>
@@ -144,11 +162,19 @@ export default function DesktopNavbar({
               {index < navigation.length - 1 && (
                 <Sparkle
                   className="
-                    h-2.5
-                    w-2.5
-                    text-pink-400/70
-                    dark:text-fuchsia-300/70
-                  "
+            h-2.5
+            w-2.5
+            text-pink-400/70
+
+            transition-transform
+            duration-300
+            ease-out
+
+            group-hover:rotate-12
+            group-hover:scale-125
+
+            dark:text-fuchsia-300/70
+          "
                 />
               )}
             </div>
@@ -160,9 +186,9 @@ export default function DesktopNavbar({
           {/* Music */}
           <div className="relative">
             {isMusicPlaying && (
-  <div
-    aria-hidden="true"
-    className="
+              <div
+                aria-hidden="true"
+                className="
       pointer-events-none
       absolute
       left-2
@@ -172,13 +198,13 @@ export default function DesktopNavbar({
       w-8
       overflow-visible
     "
-  >
-    <span className="music-sparkle music-sparkle-1">✦</span>
-    <span className="music-sparkle music-sparkle-2">✧</span>
-    <span className="music-sparkle music-sparkle-3">✦</span>
-    <span className="music-sparkle music-sparkle-4">✧</span>
-  </div>
-)}
+              >
+                <span className="music-sparkle music-sparkle-1">✦</span>
+                <span className="music-sparkle music-sparkle-2">✧</span>
+                <span className="music-sparkle music-sparkle-3">✦</span>
+                <span className="music-sparkle music-sparkle-4">✧</span>
+              </div>
+            )}
 
             <OrnamentalButton
               ariaLabel={
@@ -192,11 +218,7 @@ export default function DesktopNavbar({
             >
               <MusicNotesIcon
                 size={17}
-                weight={
-                  isMusicPlaying
-                    ? "fill"
-                    : "regular"
-                }
+                weight={isMusicPlaying ? "fill" : "regular"}
               />
             </OrnamentalButton>
           </div>
@@ -211,13 +233,9 @@ export default function DesktopNavbar({
             onClick={toggleTheme}
             label={
               <>
-                <span className="dark:hidden">
-                  Dark
-                </span>
+                <span className="dark:hidden">Dark</span>
 
-                <span className="hidden dark:inline">
-                  Light
-                </span>
+                <span className="hidden dark:inline">Light</span>
               </>
             }
           >

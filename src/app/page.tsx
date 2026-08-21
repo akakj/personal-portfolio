@@ -1,38 +1,35 @@
 import About from "./components/sections/About";
 import Contact from "./components/sections/Contact";
-import Education from "./components/sections/Education";
 import Experience from "./components/sections/Experience";
 import Footer from "./components/sections/Footer";
-import Hero from "./components/sections//Hero";
+import Hero from "./components/sections/Hero";
 import Navbar from "./components/sections/Navbar";
 import Projects from "./components/sections/Projects";
 import Skills from "./components/sections/Skills";
-import Sparkle from "./components/Sparkle";
+import Certifications from "./components/sections/Certifications";
+import FairyBackground from "./components/ui/FairyBackground";
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#fff8fc] text-[#3f3040] transition-colors duration-500 dark:bg-[#0d0715] dark:text-[#f8efff]">
-
-      {/* Pixie dust */}
-      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <Sparkle className="absolute left-[8%] top-[18%] h-3 w-3 text-pink-400/50 dark:text-fuchsia-300/60" />
-
-        <Sparkle className="absolute right-[14%] top-[26%] h-2 w-2 text-purple-300/60 dark:text-violet-300/60" />
-
-        <Sparkle className="absolute left-[18%] top-[66%] h-2 w-2 text-pink-300/60 dark:text-purple-300/50" />
-
-        <Sparkle className="absolute right-[8%] top-[74%] h-4 w-4 text-rose-300/50 dark:text-fuchsia-400/40" />
-      </div>
+    <main
+      className="
+        relative isolate min-h-screen overflow-x-hidden
+        bg-[#fff3ff] text-[#371c59]
+        transition-colors duration-500
+        dark:bg-[#0d0715] dark:text-[#f8efff]
+      "
+    >
+      <FairyBackground />
 
       <Navbar />
 
       <div className="relative z-10">
         <Hero />
-        <About />
-        <Skills />
         <Projects />
+        <Skills />
         <Experience />
-        <Education />
+        <Certifications />
+        <About />
         <Contact />
         <Footer />
       </div>

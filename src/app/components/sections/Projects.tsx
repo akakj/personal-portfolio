@@ -1,69 +1,52 @@
-import { projects } from "@/app/data/info";
-import SectionHeading from "../SectionHeading";
-import Sparkle from "../Sparkle";
+import SectionHeading from "../ui/SectionHeading";
+import Sparkle from "../ui/Sparkle";
+import ProjectGallery from "../ProjectGallery";
+import ProjectDetails from "../ProjectDetails";
 
 export default function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl px-6 py-28">
       <SectionHeading number="03" title="My brewery" />
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        {projects.map((project, index) => (
-          <article
-            key={project.title}
-            className="group relative flex min-h-97.5 flex-col overflow-hidden rounded-4xl border border-pink-200 bg-white/65 p-7 shadow-sm shadow-pink-100 transition-all duration-300 hover:-translate-y-2 hover:border-pink-300 dark:border-purple-700/40 dark:bg-[#160b22]/70 dark:shadow-none dark:hover:border-fuchsia-500/40"
-          >
-            <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-pink-200/50 blur-3xl dark:bg-fuchsia-700/10" />
+      <p className="-mt-8 text-sm italic text-[#9a7691] dark:text-purple-200/70 sm:text-base">
+        Projects I&apos;ve brewed, built, and brought to life
+      </p>
 
-            <div className="relative">
-              <div className="mb-12 flex items-center justify-between">
-                <span className="font-serif text-4xl text-pink-200 italic dark:text-purple-700">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+      <article className="relative mt-6 overflow-hidden rounded-4xl border border-pink-200 bg-white/60 p-4 shadow-sm shadow-pink-100 backdrop-blur-sm sm:p-6 lg:p-8 dark:border-purple-700/40 dark:bg-[#160b22]/65 dark:shadow-none">
+        {/* Decorative glows */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-pink-200/30 blur-3xl dark:bg-fuchsia-700/10"
+        />
 
-                <Sparkle className="h-4 w-4 text-pink-400 transition-transform duration-500 group-hover:rotate-180 group-hover:scale-125 dark:text-fuchsia-300" />
-              </div>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-28 -left-20 h-72 w-72 rounded-full bg-purple-200/25 blur-3xl dark:bg-purple-700/10"
+        />
 
-              <h3 className="font-serif text-2xl font-semibold">
-                {project.title}
-              </h3>
+        {/* Project heading */}
+        <header className="relative mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <div className="mb-3 flex items-center gap-2">
+              <Sparkle className="h-4 w-4 text-pink-400 dark:text-fuchsia-300" />
 
-              <p className="mt-4 text-sm leading-7 text-[#806b7d] dark:text-purple-200/70">
-                {project.description}
-              </p>
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-pink-600 dark:text-fuchsia-300">
+                Featured project
+              </span>
             </div>
 
-            <div className="relative mt-auto pt-8">
-              <div className="mb-6 flex flex-wrap gap-2">
-                {project.technologies.map((technology) => (
-                  <span
-                    key={technology}
-                    className="rounded-full bg-pink-50 px-3 py-1 text-xs text-pink-700 dark:bg-purple-900/60 dark:text-purple-200"
-                  >
-                    {technology}
-                  </span>
-                ))}
-              </div>
+            <h3 className="text-4xl font-semibold">Codey</h3>
 
-              <div className="flex gap-5 text-sm font-medium">
-                <a
-                  href={project.live}
-                  className="text-pink-600 transition-opacity hover:opacity-60 dark:text-fuchsia-300"
-                >
-                  Live site ↗
-                </a>
+            <p className="mt-2 text-lg italic text-[#9a7691] dark:text-purple-200/70">
+              Build. Run. Analyse.
+            </p>
+          </div>
+        </header>
 
-                <a
-                  href={project.github}
-                  className="transition-opacity hover:opacity-60"
-                >
-                  GitHub ↗
-                </a>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
+        <ProjectGallery />
+
+        <ProjectDetails />
+      </article>
     </section>
   );
 }

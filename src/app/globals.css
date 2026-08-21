@@ -29,6 +29,522 @@ body {
   font-style: italic;
 }
 
+/* =========================================================
+   Fairy background
+   ========================================================= */
+
+:root {
+  --fairy-vine-color: rgba(126, 85, 120, 0.105);
+
+  /*
+    Pixie dust.
+  */
+  --fairy-dust-color: #df64b3;
+  --fairy-dust-glow: rgba(220, 79, 159, 0.48);
+  --fairy-star-color: #df64b3;
+
+  /*
+    Light theme glow-orb colours.
+    Each orb can have its own palette.
+  */
+  --fairy-orb-1-core: rgba(255, 176, 233, 0.447);
+  --fairy-orb-1-middle: rgba(255, 201, 170, 0.26);
+  --fairy-orb-1-edge: rgba(255, 184, 218, 0.12);
+
+  --fairy-orb-2-core: rgba(255, 164, 209, 0.32);
+  --fairy-orb-2-middle: rgba(255, 201, 228, 0.19);
+
+  --fairy-orb-3-core: rgba(204, 178, 255, 0.3);
+  --fairy-orb-3-middle: rgba(229, 193, 255, 0.17);
+
+  --fairy-orb-4-core: rgba(255, 218, 140, 0.3);
+  --fairy-orb-4-middle: rgba(255, 190, 208, 0.17);
+
+  --fairy-orb-5-core: rgba(255, 172, 218, 0.27);
+  --fairy-orb-5-middle: rgba(255, 209, 234, 0.13);
+}
+
+.dark {
+  --fairy-vine-color: rgba(213, 177, 239, 0.1);
+
+  --fairy-dust-color: #dbb5ff;
+  --fairy-dust-glow: rgba(214, 148, 255, 0.5);
+  --fairy-star-color: #dbb5ff;
+
+  --fairy-orb-1-core: rgba(197, 116, 255, 0.174);
+  --fairy-orb-1-middle: rgba(153, 86, 215, 0.14);
+  --fairy-orb-1-edge: rgba(125, 72, 180, 0.06);
+
+  --fairy-orb-2-core: rgba(255, 87, 202, 0.2);
+  --fairy-orb-2-middle: rgba(195, 79, 190, 0.11);
+
+  --fairy-orb-3-core: rgba(118, 106, 255, 0.22);
+  --fairy-orb-3-middle: rgba(131, 82, 215, 0.13);
+
+  --fairy-orb-4-core: rgba(216, 109, 255, 0.2);
+  --fairy-orb-4-middle: rgba(142, 72, 191, 0.11);
+
+  --fairy-orb-5-core: rgba(255, 103, 214, 0.18);
+  --fairy-orb-5-middle: rgba(151, 84, 202, 0.09);
+}
+
+/* =========================================================
+   Fairy background
+   ========================================================= */
+
+.fairy-background {
+  pointer-events: none;
+
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  overflow: hidden;
+
+  contain: layout paint;
+}
+
+/* =========================================================
+   Glow orbs
+   ========================================================= */
+
+.fairy-orbs {
+  position: absolute;
+  inset: 0;
+}
+
+.fairy-orb {
+  position: absolute;
+
+  border-radius: 9999px;
+
+  opacity: 0.64;
+
+  transform: translate3d(0, 0, 0);
+
+  animation-name: fairy-orb-drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Warm sunlight upper-right */
+.fairy-orb-1 {
+  width: clamp(320px, 35vw, 680px);
+  aspect-ratio: 1;
+
+  right: -8%;
+  top: 8%;
+
+  background:
+    radial-gradient(
+      circle at 45% 45%,
+      var(--fairy-orb-1-core) 0%,
+      var(--fairy-orb-1-middle) 28%,
+      var(--fairy-orb-1-edge) 49%,
+      transparent 72%
+    );
+
+  filter: blur(16px);
+
+  animation-duration: 18s;
+}
+
+/* Pink light upper-left */
+.fairy-orb-2 {
+  width: clamp(260px, 27vw, 520px);
+  aspect-ratio: 1;
+
+  left: -11%;
+  top: 18%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--fairy-orb-2-core) 0%,
+      var(--fairy-orb-2-middle) 38%,
+      transparent 72%
+    );
+
+  filter: blur(20px);
+
+  animation-duration: 22s;
+  animation-delay: -7s;
+}
+
+/* Lavender light right */
+.fairy-orb-3 {
+  width: clamp(360px, 39vw, 740px);
+  aspect-ratio: 1;
+
+  right: -13%;
+  top: 48%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--fairy-orb-3-core) 0%,
+      var(--fairy-orb-3-middle) 39%,
+      transparent 72%
+    );
+
+  filter: blur(24px);
+
+  animation-duration: 25s;
+  animation-delay: -12s;
+}
+
+/* Warm light from bottom */
+.fairy-orb-4 {
+  width: clamp(330px, 34vw, 650px);
+  aspect-ratio: 1;
+
+  left: 5%;
+  bottom: -25%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--fairy-orb-4-core) 0%,
+      var(--fairy-orb-4-middle) 42%,
+      transparent 73%
+    );
+
+  filter: blur(22px);
+
+  animation-duration: 21s;
+  animation-delay: -4s;
+}
+
+/* Distant pink haze */
+.fairy-orb-5 {
+  width: clamp(230px, 22vw, 430px);
+  aspect-ratio: 1;
+
+  left: 52%;
+  top: -11%;
+
+  background:
+    radial-gradient(
+      circle,
+      var(--fairy-orb-5-core) 0%,
+      var(--fairy-orb-5-middle) 43%,
+      transparent 72%
+    );
+
+  filter: blur(18px);
+
+  animation-duration: 24s;
+  animation-delay: -15s;
+}
+
+@keyframes fairy-orb-drift {
+  0% {
+    transform:
+      translate3d(-8px, 4px, 0)
+      scale(1);
+  }
+
+  45% {
+    transform:
+      translate3d(8px, -8px, 0)
+      scale(1.025);
+  }
+
+  100% {
+    transform:
+      translate3d(15px, 10px, 0)
+      scale(0.98);
+  }
+}
+
+/* =========================================================
+   Pixie dust
+   ========================================================= */
+
+.fairy-dust {
+  position: absolute;
+  inset: 0;
+}
+
+.fairy-dust-particle {
+  position: absolute;
+
+  display: block;
+
+  border-radius: 999px;
+
+  background: var(--fairy-dust-color);
+
+  box-shadow:
+    0 0 5px var(--fairy-dust-glow),
+    0 0 12px var(--fairy-dust-glow);
+
+  opacity: 0;
+
+  animation-name: fairy-dust-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/*
+  Larger four-point sparkles.
+  These are deliberately more noticeable than the tiny dust.
+*/
+.fairy-dust-star {
+  width: 10px !important;
+  height: 10px !important;
+
+  border-radius: 0;
+
+  background: var(--fairy-star-color);
+
+  clip-path: polygon(
+    50% 0%,
+    59% 39%,
+    100% 50%,
+    59% 61%,
+    50% 100%,
+    41% 61%,
+    0% 50%,
+    41% 39%
+  );
+
+  filter:
+    drop-shadow(0 0 3px var(--fairy-dust-glow))
+    drop-shadow(0 0 7px var(--fairy-dust-glow));
+
+  box-shadow: none;
+}
+
+@keyframes fairy-dust-float {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate3d(0, 7px, 0)
+      scale(0.7)
+      rotate(0deg);
+  }
+
+  12% {
+    opacity: 0.5;
+  }
+
+  35% {
+    opacity: 0.85;
+
+    transform:
+      translate3d(5px, -3px, 0)
+      scale(1)
+      rotate(18deg);
+  }
+
+  58% {
+    opacity: 0.72;
+  }
+
+  78% {
+    opacity: 0.38;
+
+    transform:
+      translate3d(-4px, -9px, 0)
+      scale(0.92)
+      rotate(37deg);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(7px, -15px, 0)
+      scale(0.78)
+      rotate(55deg);
+  }
+}
+
+/* =========================================================
+   Background vines
+   ========================================================= */
+
+.fairy-foliage {
+  position: absolute;
+  inset: 0;
+}
+
+.fairy-vine {
+  position: absolute;
+
+  color: var(--fairy-vine-color);
+
+  overflow: visible;
+}
+
+.fairy-vine-stem {
+  fill: none;
+
+  stroke: currentColor;
+  stroke-width: 3.2;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fairy-vine-stem-thin {
+  stroke-width: 2;
+  opacity: 0.82;
+}
+
+.fairy-vine-tendril {
+  fill: none;
+
+  stroke: currentColor;
+  stroke-width: 1.6;
+
+  stroke-linecap: round;
+
+  opacity: 0.72;
+}
+
+.fairy-vine-leaf {
+  fill: currentColor;
+}
+
+/*
+  Matches the subtle inner vein used by the navigation Vine.tsx.
+*/
+.fairy-vine-leaf-vein {
+  fill: none;
+
+  stroke: currentColor;
+  stroke-width: 1;
+
+  stroke-linecap: round;
+
+  opacity: 0.5;
+}
+
+/* =========================================================
+   Vine placement
+   ========================================================= */
+
+.fairy-vine-top-left {
+  width: clamp(270px, 29vw, 520px);
+
+  left: -7%;
+  top: 3%;
+}
+
+.fairy-vine-top-right {
+  width: clamp(280px, 30vw, 540px);
+
+  right: -8%;
+  top: 2%;
+}
+
+.fairy-vine-bottom-left {
+  width: clamp(290px, 32vw, 570px);
+
+  left: -5%;
+  bottom: -4%;
+}
+
+.fairy-vine-bottom-middle {
+  width: clamp(350px, 41vw, 720px);
+
+  left: 32%;
+  bottom: -5%;
+
+  transform: translateX(-10%);
+}
+
+.fairy-vine-bottom-right {
+  width: clamp(290px, 32vw, 570px);
+
+  right: -5%;
+  bottom: -5%;
+}
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media (max-width: 767px) {
+  /*
+    Fewer animated particles to reduce visual clutter and work
+    on smaller screens.
+  */
+  .fairy-dust-particle:nth-child(n + 19) {
+    display: none;
+  }
+
+  .fairy-vine-top-left {
+    width: 300px;
+    left: -145px;
+    top: 7%;
+  }
+
+  .fairy-vine-top-right {
+    width: 315px;
+    right: -150px;
+    top: 8%;
+  }
+
+  .fairy-vine-bottom-left {
+    width: 320px;
+    left: -130px;
+  }
+
+  .fairy-vine-bottom-middle {
+    width: 370px;
+
+    left: 50%;
+    bottom: -30px;
+
+    transform: translateX(-50%);
+  }
+
+  .fairy-vine-bottom-right {
+    width: 320px;
+    right: -130px;
+  }
+
+  .fairy-orb-1 {
+    width: 390px;
+    right: -190px;
+  }
+
+  .fairy-orb-2 {
+    width: 310px;
+    left: -190px;
+  }
+
+  .fairy-orb-3 {
+    width: 420px;
+    right: -230px;
+  }
+
+  .fairy-orb-4 {
+    width: 380px;
+    left: -150px;
+  }
+}
+
+/* =========================================================
+   Reduced motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fairy-orb,
+  .fairy-dust-particle {
+    animation: none;
+  }
+
+  .fairy-dust-particle {
+    opacity: 0.48;
+  }
+}
+
 /* =========================
    Navigation vine
    ========================= */
@@ -288,4 +804,564 @@ body {
     display: none;
   }
 }
+
+/* =========================================================
+   Enchanted page background
+   ========================================================= */
+
+.fairy-background {
+  --fairy-vine: #9b8a83;
+
+  --fairy-sparkle-primary: rgba(236, 115, 172, 0.72);
+  --fairy-sparkle-secondary: rgba(196, 152, 211, 0.65);
+
+  --fairy-orb-one:
+    radial-gradient(
+      circle,
+      rgba(255, 231, 168, 0.42) 0%,
+      rgba(255, 222, 179, 0.24) 24%,
+      rgba(255, 214, 226, 0.09) 52%,
+      transparent 72%
+    );
+
+  --fairy-orb-two:
+    radial-gradient(
+      circle,
+      rgba(255, 183, 218, 0.25) 0%,
+      rgba(255, 211, 232, 0.14) 35%,
+      transparent 72%
+    );
+
+  --fairy-orb-three:
+    radial-gradient(
+      circle,
+      rgba(238, 214, 255, 0.22) 0%,
+      rgba(244, 225, 255, 0.1) 40%,
+      transparent 72%
+    );
+}
+
+.dark .fairy-background {
+  --fairy-vine: #a88dc4;
+
+  --fairy-sparkle-primary: rgba(244, 178, 255, 0.78);
+  --fairy-sparkle-secondary: rgba(193, 164, 255, 0.72);
+
+  --fairy-orb-one:
+    radial-gradient(
+      circle,
+      rgba(193, 119, 255, 0.23) 0%,
+      rgba(138, 78, 198, 0.15) 31%,
+      rgba(93, 43, 142, 0.07) 54%,
+      transparent 74%
+    );
+
+  --fairy-orb-two:
+    radial-gradient(
+      circle,
+      rgba(236, 113, 213, 0.18) 0%,
+      rgba(173, 83, 185, 0.1) 36%,
+      transparent 73%
+    );
+
+  --fairy-orb-three:
+    radial-gradient(
+      circle,
+      rgba(130, 131, 255, 0.18) 0%,
+      rgba(96, 73, 183, 0.09) 40%,
+      transparent 72%
+    );
+}
+
+/* =========================================================
+   Large sunlight / magical glow orbs
+   ========================================================= */
+
+.fairy-bg-orb {
+  position: absolute;
+
+  border-radius: 9999px;
+
+  will-change: transform;
+
+  transform: translate3d(0, 0, 0);
+}
+
+/*
+  Large warm light coming in from above.
+  It stays well away from the centre-left hero copy.
+*/
+.fairy-bg-orb--one {
+  top: -18rem;
+  right: 7%;
+
+  width: min(62vw, 58rem);
+  aspect-ratio: 1;
+
+  background: var(--fairy-orb-one);
+
+  animation: fairy-orb-one-drift 20s ease-in-out infinite alternate;
+}
+
+/* Smaller pink glow near the lower left edge */
+.fairy-bg-orb--two {
+  left: -21rem;
+  bottom: -18rem;
+
+  width: min(55vw, 48rem);
+  aspect-ratio: 1;
+
+  background: var(--fairy-orb-two);
+
+  animation: fairy-orb-two-drift 25s ease-in-out infinite alternate;
+}
+
+/* Purple secondary glow towards the right */
+.fairy-bg-orb--three {
+  right: -18rem;
+  bottom: -15rem;
+
+  width: min(58vw, 52rem);
+  aspect-ratio: 1;
+
+  background: var(--fairy-orb-three);
+
+  animation: fairy-orb-three-drift 23s ease-in-out infinite alternate;
+}
+
+@keyframes fairy-orb-one-drift {
+  from {
+    transform: translate3d(-1%, -1%, 0) scale(0.97);
+  }
+
+  to {
+    transform: translate3d(4%, 4%, 0) scale(1.04);
+  }
+}
+
+@keyframes fairy-orb-two-drift {
+  from {
+    transform: translate3d(-2%, 3%, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(5%, -3%, 0) scale(1.05);
+  }
+}
+
+@keyframes fairy-orb-three-drift {
+  from {
+    transform: translate3d(3%, 2%, 0) scale(1.02);
+  }
+
+  to {
+    transform: translate3d(-4%, -3%, 0) scale(0.96);
+  }
+}
+
+/* =========================================================
+   Corner vines
+   ========================================================= */
+
+.fairy-bg-vine {
+  position: absolute;
+
+  width: clamp(14rem, 24vw, 28rem);
+  aspect-ratio: 1;
+
+  color: var(--fairy-vine);
+
+  /*
+    Intentionally faint. They should be noticed after the content,
+    not before it.
+  */
+  opacity: 0.11;
+
+  will-change: transform;
+
+  animation: fairy-vine-breathe 14s ease-in-out infinite alternate;
+}
+
+.dark .fairy-bg-vine {
+  opacity: 0.15;
+}
+
+.fairy-bg-vine--top-left {
+  top: 4rem;
+  left: -7rem;
+
+  transform-origin: top left;
+}
+
+.fairy-bg-vine--top-right {
+  top: 3.5rem;
+  right: -7rem;
+
+  transform: scaleX(-1);
+  transform-origin: top right;
+
+  opacity: 0.075;
+
+  animation-delay: -4s;
+}
+
+.dark .fairy-bg-vine--top-right {
+  opacity: 0.11;
+}
+
+.fairy-bg-vine--bottom-left {
+  bottom: -5rem;
+  left: -8rem;
+
+  transform: scaleY(-1);
+  transform-origin: bottom left;
+
+  opacity: 0.075;
+
+  animation-delay: -8s;
+}
+
+.dark .fairy-bg-vine--bottom-left {
+  opacity: 0.11;
+}
+
+.fairy-bg-vine--bottom-right {
+  right: -6rem;
+  bottom: -5rem;
+
+  transform: scale(-1);
+  transform-origin: bottom right;
+
+  animation-delay: -11s;
+}
+
+.fairy-bg-vine-stem {
+  fill: none;
+
+  stroke: currentColor;
+  stroke-width: 2.2;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fairy-bg-vine-stem--thin {
+  stroke-width: 1.35;
+  opacity: 0.7;
+}
+
+.fairy-bg-vine-leaves {
+  fill: currentColor;
+  opacity: 0.82;
+}
+
+.fairy-bg-vine-buds {
+  fill: currentColor;
+  opacity: 0.7;
+}
+
+@keyframes fairy-vine-breathe {
+  0% {
+    translate: 0 0;
+    rotate: -0.3deg;
+  }
+
+  100% {
+    translate: 5px 4px;
+    rotate: 0.6deg;
+  }
+}
+
+/*
+  Corner transforms need to stay mirrored while moving.
+  These override the generic vine animation's rotate property.
+*/
+
+.fairy-bg-vine--top-right {
+  animation-name: fairy-vine-top-right;
+}
+
+.fairy-bg-vine--bottom-left {
+  animation-name: fairy-vine-bottom-left;
+}
+
+.fairy-bg-vine--bottom-right {
+  animation-name: fairy-vine-bottom-right;
+}
+
+@keyframes fairy-vine-top-right {
+  from {
+    transform: scaleX(-1) translate3d(0, 0, 0) rotate(-0.3deg);
+  }
+
+  to {
+    transform: scaleX(-1) translate3d(5px, 4px, 0) rotate(0.5deg);
+  }
+}
+
+@keyframes fairy-vine-bottom-left {
+  from {
+    transform: scaleY(-1) translate3d(0, 0, 0) rotate(-0.3deg);
+  }
+
+  to {
+    transform: scaleY(-1) translate3d(5px, 4px, 0) rotate(0.5deg);
+  }
+}
+
+@keyframes fairy-vine-bottom-right {
+  from {
+    transform: scale(-1) translate3d(0, 0, 0) rotate(-0.3deg);
+  }
+
+  to {
+    transform: scale(-1) translate3d(5px, 4px, 0) rotate(0.5deg);
+  }
+}
+
+/* =========================================================
+   Pixie dust
+   ========================================================= */
+
+.fairy-bg-sparkle {
+  position: absolute;
+
+  width: 9px;
+  height: 9px;
+
+  opacity: 0;
+
+  animation: fairy-pixie-float 6.8s ease-in-out infinite;
+
+  will-change: transform, opacity;
+}
+
+/*
+  Two rounded lines create a softer four-point sparkle than
+  using a text character.
+*/
+
+.fairy-bg-sparkle::before,
+.fairy-bg-sparkle::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  margin: auto;
+
+  border-radius: 999px;
+
+  background: var(--fairy-sparkle-primary);
+
+  box-shadow:
+    0 0 5px rgba(245, 148, 197, 0.2),
+    0 0 10px rgba(245, 148, 197, 0.12);
+}
+
+.dark .fairy-bg-sparkle::before,
+.dark .fairy-bg-sparkle::after {
+  box-shadow:
+    0 0 6px rgba(230, 174, 255, 0.3),
+    0 0 14px rgba(184, 128, 255, 0.18);
+}
+
+.fairy-bg-sparkle::before {
+  width: 2px;
+  height: 100%;
+}
+
+.fairy-bg-sparkle::after {
+  width: 100%;
+  height: 2px;
+}
+
+.fairy-bg-sparkle--tiny {
+  width: 4px;
+  height: 4px;
+
+  animation-duration: 8s;
+}
+
+.fairy-bg-sparkle--small {
+  width: 6px;
+  height: 6px;
+
+  animation-duration: 7.4s;
+}
+
+.fairy-bg-sparkle--medium {
+  width: 10px;
+  height: 10px;
+
+  animation-duration: 6.2s;
+}
+
+.fairy-bg-sparkle--large {
+  width: 14px;
+  height: 14px;
+
+  animation-duration: 8.5s;
+}
+
+@keyframes fairy-pixie-float {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate3d(0, 8px, 0)
+      rotate(0deg)
+      scale(0.55);
+  }
+
+  15% {
+    opacity: 0.25;
+  }
+
+  35% {
+    opacity: 0.85;
+
+    transform:
+      translate3d(5px, 0, 0)
+      rotate(25deg)
+      scale(1);
+  }
+
+  65% {
+    opacity: 0.45;
+
+    transform:
+      translate3d(-4px, -8px, 0)
+      rotate(55deg)
+      scale(0.8);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate3d(5px, -17px, 0)
+      rotate(90deg)
+      scale(0.45);
+  }
+}
+
+/* Tiny circular motes in addition to stars */
+
+.fairy-bg-dot {
+  position: absolute;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 9999px;
+
+  background: var(--fairy-sparkle-secondary);
+
+  box-shadow: 0 0 8px var(--fairy-sparkle-secondary);
+
+  opacity: 0;
+
+  animation: fairy-dot-float 7s ease-in-out infinite;
+
+  will-change: transform, opacity;
+}
+
+@keyframes fairy-dot-float {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0) scale(0.6);
+  }
+
+  30% {
+    opacity: 0.65;
+  }
+
+  60% {
+    opacity: 0.3;
+    transform: translate3d(8px, -9px, 0) scale(1);
+  }
+}
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .fairy-bg-vine {
+    width: 16rem;
+    opacity: 0.08;
+  }
+
+  .dark .fairy-bg-vine {
+    opacity: 0.12;
+  }
+
+  .fairy-bg-vine--top-left {
+    left: -9rem;
+  }
+
+  .fairy-bg-vine--top-right {
+    right: -9rem;
+  }
+
+  .fairy-bg-vine--bottom-left {
+    left: -9rem;
+  }
+
+  .fairy-bg-vine--bottom-right {
+    right: -9rem;
+  }
+
+  .fairy-bg-orb--one {
+    top: -10rem;
+    right: -9rem;
+
+    width: 34rem;
+  }
+
+  .fairy-bg-orb--two {
+    left: -18rem;
+    bottom: -13rem;
+
+    width: 34rem;
+  }
+
+  .fairy-bg-orb--three {
+    right: -20rem;
+    bottom: 12%;
+
+    width: 34rem;
+  }
+
+  /*
+    Hide several particles on small screens.
+    Keeps the effect without making the page visually noisy.
+  */
+  .fairy-bg-sparkle:nth-of-type(3n) {
+    display: none;
+  }
+}
+
+/* =========================================================
+   Reduced motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .fairy-bg-orb,
+  .fairy-bg-vine,
+  .fairy-bg-sparkle,
+  .fairy-bg-dot {
+    animation: none;
+  }
+
+  .fairy-bg-sparkle {
+    opacity: 0.35;
+  }
+
+  .fairy-bg-dot {
+    opacity: 0.25;
+  }
+}
+
 

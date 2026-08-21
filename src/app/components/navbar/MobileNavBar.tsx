@@ -4,13 +4,13 @@ import { ReactNode, useState } from "react";
 import { useTheme } from "@teispace/next-themes";
 
 import { navigation } from "@/app/data/info";
-import Sparkle from "./Sparkle";
-import FlowerButton from "./FlowerButton";
+import Sparkle from "../ui/Sparkle";
+import FlowerButton from "../ui/FlowerButton";
 
 import { SunDimIcon } from "@phosphor-icons/react/dist/icons/SunDim";
 import { StarAndCrescentIcon } from "@phosphor-icons/react/dist/icons/StarAndCrescent";
 import { XIcon } from "@phosphor-icons/react/dist/icons/X";
-import { DotsThreeOutlineIcon } from "@phosphor-icons/react/dist/icons/DotsThreeOutline";
+import { ListHeartIcon } from "@phosphor-icons/react/dist/icons/ListHeart";
 import { MusicNotesIcon } from "@phosphor-icons/react";
 
 type MobileNavbarProps = {
@@ -171,84 +171,65 @@ export default function MobileNavbar({
           </a>
 
           <div className="flex items-center gap-1">
-  {/* Music */}
-  <div className="relative">
-    {isMusicPlaying && (
-      <div
-        aria-hidden="true"
-        className="
+            {/* Music */}
+            <div className="relative">
+              {isMusicPlaying && (
+                <div
+                  aria-hidden="true"
+                  className="
           pointer-events-none
           absolute
           inset-0
           z-20
           overflow-visible
         "
-      >
-        <span className="music-sparkle music-sparkle-1">
-          ✦
-        </span>
+                >
+                  <span className="music-sparkle music-sparkle-1">✦</span>
 
-        <span className="music-sparkle music-sparkle-2">
-          ✧
-        </span>
+                  <span className="music-sparkle music-sparkle-2">✧</span>
 
-        <span className="music-sparkle music-sparkle-3">
-          ✦
-        </span>
-      </div>
-    )}
+                  <span className="music-sparkle music-sparkle-3">✦</span>
+                </div>
+              )}
 
-    <FlowerButton
-      aria-label={
-        isMusicPlaying
-          ? "Pause background music"
-          : "Play background music"
-      }
-      aria-pressed={isMusicPlaying}
-      onClick={onToggleMusic}
-    >
-      <MusicNotesIcon
-        size={18}
-        weight={isMusicPlaying ? "fill" : "regular"}
-      />
-    </FlowerButton>
-  </div>
+              <FlowerButton
+                aria-label={
+                  isMusicPlaying
+                    ? "Pause background music"
+                    : "Play background music"
+                }
+                aria-pressed={isMusicPlaying}
+                onClick={onToggleMusic}
+              >
+                <MusicNotesIcon
+                  size={18}
+                  weight={isMusicPlaying ? "fill" : "regular"}
+                />
+              </FlowerButton>
+            </div>
 
-  {/* Theme */}
-  <FlowerButton
-    aria-label="Toggle theme"
-    onClick={toggleTheme}
-  >
-    <span className="dark:hidden">
-      <StarAndCrescentIcon size={19} />
-    </span>
+            {/* Theme */}
+            <FlowerButton aria-label="Toggle theme" onClick={toggleTheme}>
+              <span className="dark:hidden">
+                <StarAndCrescentIcon size={19} />
+              </span>
 
-    <span className="hidden dark:inline">
-      <SunDimIcon size={19} />
-    </span>
-  </FlowerButton>
+              <span className="hidden dark:inline">
+                <SunDimIcon size={19} />
+              </span>
+            </FlowerButton>
 
-  {/* Menu */}
-  <FlowerButton
-    aria-label={
-      menuOpen
-        ? "Close navigation"
-        : "Open navigation"
-    }
-    aria-expanded={menuOpen}
-    aria-controls="mobile-navigation"
-    onClick={() =>
-      setMenuOpen((current) => !current)
-    }
-    size="large"
-  >
-    {menuOpen ? (
-      <XIcon size={20} />
-    ) : (
-      <DotsThreeOutlineIcon size={20} />
-    )}
-  </FlowerButton>
-</div>
+            {/* Menu */}
+            <FlowerButton
+              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setMenuOpen((current) => !current)}
+              size="large"
+            >
+              {menuOpen ? <XIcon size={20} /> : <ListHeartIcon size={20} />}
+            </FlowerButton>
+          </div>
         </nav>
 
         <div
@@ -319,9 +300,7 @@ export default function MobileNavbar({
                       "
                     />
 
-                    <span className="text-sm">
-                      {item.name}
-                    </span>
+                    <span className="text-sm">{item.name}</span>
                   </div>
                 </a>
               ))}
