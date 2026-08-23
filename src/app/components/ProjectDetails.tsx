@@ -15,7 +15,7 @@ export default function ProjectDetails() {
             Full-stack coding practice platform
           </h4>
 
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-[#806b7d] dark:text-purple-200/70 sm:text-base">
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-[#755f72] dark:text-purple-200/70 sm:text-base">
             Codey is a full-stack coding practice platform for solving
             algorithm problems, executing code and tracking progress. It
             combines an integrated code editor, multi-language execution,
@@ -48,10 +48,9 @@ export default function ProjectDetails() {
 
         {/* Highlights */}
         <div>
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-pink-600 dark:text-fuchsia-300">
-            Highlights
-          </p>
-
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-[#b12f73] dark:text-fuchsia-300">
+  Highlights
+</p>
           <ul className="space-y-3">
             {features.map((feature) => (
               <li
@@ -78,108 +77,107 @@ export default function ProjectDetails() {
       {/* Project links */}
       <footer className="relative mt-10 flex flex-wrap items-center gap-6">
         {project?.live && (
-  <a
-    href={project.live}
-    target="_blank"
-    rel="noreferrer"
-    className="
-      group/codey
-      relative
-      inline-flex items-center gap-2.5
-      overflow-hidden
-      rounded-full
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noreferrer"
+            className="
+              group/codey
+              relative
+              inline-flex items-center gap-2.5
+              overflow-hidden
+              rounded-full
 
-      border border-[#dc7eaa]
-      bg-[#e991b6]
-      px-6 py-3
+              border border-[#fc91c331]
+              bg-[#fbb8d4]
+              px-6 py-3
 
-      text-sm font-semibold
-      text-white
+              text-sm font-semibold
+              text-[#43283c]
 
-      shadow-[0_5px_18px_rgba(217,107,158,0.18)]
+              shadow-[0_5px_18px_rgba(217,107,158,0.18)]
 
-      transition-all
-      duration-300
-      ease-out
+              transition-all
+              duration-300
+              ease-out
 
-      hover:-translate-y-0.5
-      hover:border-[#d36f9f]
-      hover:bg-[#dd7eaa]
-      hover:shadow-[0_7px_22px_rgba(217,107,158,0.28)]
+              hover:-translate-y-0.5
+              hover:border-[#ff97c98e]
+              hover:shadow-[0_7px_22px_rgba(217,107,158,0.28)]
 
-      focus-visible:outline-none
-      focus-visible:ring-2
-      focus-visible:ring-pink-400
-      focus-visible:ring-offset-2
+              focus-visible:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-pink-400
+              focus-visible:ring-offset-2
 
-      dark:border-purple-300/50
-      dark:bg-purple-200
-      dark:text-purple-950
-      dark:shadow-[0_5px_20px_rgba(216,180,254,0.10)]
+              dark:border-purple-300/50
+              dark:bg-purple-200
+              dark:text-purple-950
+              dark:shadow-[0_5px_20px_rgba(216,180,254,0.10)]
 
-      dark:hover:border-fuchsia-200/70
-      dark:hover:bg-[#e8c6fa]
-      dark:hover:shadow-[0_7px_24px_rgba(216,180,254,0.18)]
+              dark:hover:border-fuchsia-200/70
+              dark:hover:bg-[#e8c6fa]
+              dark:hover:shadow-[0_7px_24px_rgba(216,180,254,0.18)]
 
-      dark:focus-visible:ring-fuchsia-300
-      dark:focus-visible:ring-offset-[#0b0310]
-    "
-  >
-    {/* Soft internal shimmer */}
-    <span
-  aria-hidden="true"
-  className="
-    pointer-events-none
-    absolute inset-0
-    -translate-x-full
+              dark:focus-visible:ring-fuchsia-300
+              dark:focus-visible:ring-offset-[#0b0310]
+            "
+          >
+            {/* Soft internal shimmer */}
+            <span
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute inset-0
+                -translate-x-full
 
-    bg-linear-to-r
-    from-transparent
-    via-white/25
-    to-transparent
+                bg-linear-to-r
+                from-transparent
+                via-white/45
+                to-transparent
 
-    transition-transform
-    duration-700
-    ease-out
+                transition-transform
+                duration-700
+                ease-out
 
-    group-hover/codey:translate-x-full
+                group-hover/codey:translate-x-full
 
-    dark:from-transparent
-    dark:via-purple-500/20
-    dark:to-transparent
-  "
-/>
+                dark:from-transparent
+                dark:via-purple-500/20
+                dark:to-transparent
+              "
+            />
 
-    <Sparkle
-      className="
-        relative z-10
-        h-3.5 w-3.5
+            <Sparkle
+              className="
+                relative z-10
+                h-3.5 w-3.5
 
-        transition-transform
-        duration-500
-        ease-out
+                transition-transform
+                duration-500
+                ease-out
 
-        group-hover/codey:rotate-12
-        group-hover/codey:scale-110
-      "
-    />
+                group-hover/codey:rotate-12
+                group-hover/codey:scale-110
+              "
+            />
 
-    <span className="relative z-10">View Codey</span>
+            <span className="relative z-10">View Codey</span>
 
-    <span
-      aria-hidden="true"
-      className="
-        relative z-10
-        transition-transform
-        duration-300
-        group-hover/codey:translate-x-0.5
-        group-hover/codey:-translate-y-0.5
-      "
-    >
-      ↗
-    </span>
-  </a>
-)}
+            <span
+              aria-hidden="true"
+              className="
+                relative z-10
+                transition-transform
+                duration-300
+                group-hover/codey:translate-x-0.5
+                group-hover/codey:-translate-y-0.5
+              "
+            >
+              ↗
+            </span>
+          </a>
+        )}
 
         {/* GitHub */}
         <a

@@ -69,7 +69,7 @@ export default function OrnamentalButton({
           className="
             pointer-events-none
             absolute
-            inset-[2px]
+            inset-0.5
             opacity-70
             transition-all
             duration-500
@@ -105,7 +105,7 @@ export default function OrnamentalButton({
               w-[56%]
               -translate-x-1/2
               -translate-y-1/2
-              rotate-[60deg]
+              rotate-60
               rounded-[50%]
               border
               border-pink-300/60
@@ -125,7 +125,7 @@ export default function OrnamentalButton({
               w-[56%]
               -translate-x-1/2
               -translate-y-1/2
-              rotate-[120deg]
+              rotate-120
               rounded-[50%]
               border
               border-pink-300/60

@@ -25,7 +25,7 @@ export default function FairyButton({
         hover:-translate-y-0.5
         focus-visible:outline-none
         focus-visible:ring-2
-        focus-visible:ring-pink-400
+        focus-visible:ring-[#b12f73]
         focus-visible:ring-offset-2
         dark:focus-visible:ring-fuchsia-300
         dark:focus-visible:ring-offset-[#0b0310]
@@ -33,16 +33,22 @@ export default function FairyButton({
         ${
           isPrimary
             ? `
-              bg-[#e991b6]
-              text-white
-              shadow-[0_5px_18px_rgba(217,107,158,0.16)]
-              hover:bg-[#dd7eaa]
-              hover:shadow-[0_7px_24px_rgba(217,107,158,0.28)]
+              border border-[#ffbde1e0]
+              bg-[#ffcbe8]
+              text-[#4d2f45]
 
+              shadow-[0_5px_18px_rgba(217,107,158,0.14)]
+
+              hover:bg-[#ffa7d7c8]
+              hover:text-[#43283c]
+              hover:shadow-[0_7px_24px_rgba(217,107,158,0.22)]
+
+              dark:border-transparent
               dark:bg-purple-200
               dark:text-purple-950
               dark:shadow-[0_5px_20px_rgba(232,190,255,0.12)]
               dark:hover:bg-fuchsia-200
+              dark:hover:text-purple-950
               dark:hover:shadow-[0_7px_26px_rgba(232,190,255,0.22)]
             `
             : `
@@ -113,12 +119,11 @@ export default function FairyButton({
 
           ${
             isPrimary
-              ? "text-[#f84d78bd] dark:text-[#9b5dd5ea]"
+              ? "text-[#ff84c8ed] dark:text-[#9b5dd5ea]"
               : "text-[#d276a3af] dark:text-[#dbb5ffce]"
           }
         `}
       >
-        {/* Main decorative stroke */}
         <path
           d="
             M4 21
@@ -132,7 +137,6 @@ export default function FairyButton({
           strokeLinecap="round"
         />
 
-        {/* Centre upward curl */}
         <path
           d="
             M40 19
@@ -145,7 +149,6 @@ export default function FairyButton({
           strokeLinecap="round"
         />
 
-        {/* Left curl */}
         <path
           d="
             M22 15
@@ -157,7 +160,6 @@ export default function FairyButton({
           strokeLinecap="round"
         />
 
-        {/* Right curl */}
         <path
           d="
             M58 15
@@ -169,7 +171,6 @@ export default function FairyButton({
           strokeLinecap="round"
         />
 
-        {/* Left leaf */}
         <path
           d="
             M25 15
@@ -185,7 +186,6 @@ export default function FairyButton({
           "
         />
 
-        {/* Centre leaf */}
         <path
           d="
             M39 9
@@ -201,7 +201,6 @@ export default function FairyButton({
           "
         />
 
-        {/* Right leaf */}
         <path
           d="
             M55 15
@@ -218,7 +217,6 @@ export default function FairyButton({
         />
       </svg>
 
-      {/* Left sparkle */}
       <span
         aria-hidden="true"
         className="
@@ -245,7 +243,6 @@ export default function FairyButton({
         <Sparkle className="h-2.5 w-2.5" />
       </span>
 
-      {/* Small sparkle near ornament */}
       <span
         aria-hidden="true"
         className="

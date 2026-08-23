@@ -25,11 +25,14 @@ export default function About() {
         </div>
 
         <div className="relative overflow-hidden rounded-4xl border border-pink-200 bg-white/55 p-8 dark:border-purple-700/40 dark:bg-purple-950/30">
-          <span className="absolute right-6 top-5 text-xl text-pink-400 dark:text-fuchsia-300">
+          <span
+            aria-hidden="true"
+            className="absolute right-6 top-5 text-xl text-pink-400 dark:text-fuchsia-300"
+          >
             ✦
           </span>
 
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-pink-500 dark:text-fuchsia-300">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#b12f73] dark:text-fuchsia-300">
             Currently
           </p>
 
@@ -56,7 +59,7 @@ type InfoRowProps = {
 function InfoRow({ label, value }: InfoRowProps) {
   return (
     <div>
-      <p className="text-xs uppercase tracking-[0.2em] text-[#ae849f] dark:text-purple-400">
+      <p className="text-xs uppercase tracking-[0.2em] text-[#755f72] dark:text-purple-400">
         {label}
       </p>
 

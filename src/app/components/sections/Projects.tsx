@@ -8,11 +8,28 @@ export default function Projects() {
     <section id="projects" className="mx-auto max-w-6xl px-6 py-28">
       <SectionHeading number="03" title="My brewery" />
 
-      <p className="-mt-8 text-sm italic text-[#9a7691] dark:text-purple-200/70 sm:text-base">
+      <p className="-mt-8 text-sm italic text-[#755f72] dark:text-purple-200/70 sm:text-base">
         Projects I&apos;ve brewed, built, and brought to life
       </p>
 
-      <article className="relative mt-6 overflow-hidden rounded-4xl border border-pink-200 bg-white/60 p-4 shadow-sm shadow-pink-100 backdrop-blur-sm sm:p-6 lg:p-8 dark:border-purple-700/40 dark:bg-[#160b22]/65 dark:shadow-none">
+      <article
+  className="
+    relative mt-6 overflow-hidden rounded-4xl
+    border border-pink-200
+    bg-white/60
+    p-4
+    text-[#43283c]
+    shadow-sm shadow-pink-100
+    backdrop-blur-sm
+    sm:p-6
+    lg:p-8
+
+    dark:border-purple-700/40
+    dark:bg-[#160b22]/65
+    dark:text-purple-50
+    dark:shadow-none
+  "
+>
         {/* Decorative glows */}
         <div
           aria-hidden="true"
@@ -30,14 +47,14 @@ export default function Projects() {
             <div className="mb-3 flex items-center gap-2">
               <Sparkle className="h-4 w-4 text-pink-400 dark:text-fuchsia-300" />
 
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-pink-600 dark:text-fuchsia-300">
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#b12f73] dark:text-fuchsia-300">
                 Featured project
               </span>
             </div>
 
             <h3 className="text-4xl font-semibold">Codey</h3>
 
-            <p className="mt-2 text-lg italic text-[#9a7691] dark:text-purple-200/70">
+            <p className="mt-2 text-lg italic text-[#755f72] dark:text-purple-200/70">
               Build. Run. Analyse.
             </p>
           </div>

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import type { ComponentProps } from "react";
-import FairyButton from "../ui/FairyButton";
 import { GithubLogoIcon } from "@phosphor-icons/react/dist/icons/GithubLogo";
 import { LinkedinLogoIcon } from "@phosphor-icons/react/dist/icons/LinkedinLogo";
 
@@ -53,6 +52,9 @@ export default function Contact() {
     }
   };
 
+  const inputClasses =
+    "w-full rounded-2xl border border-pink-200 bg-white/70 px-4 py-3 text-[#493640] outline-none transition placeholder:text-[#806b7d] focus:border-pink-500 focus:ring-2 focus:ring-pink-200/60 dark:border-purple-700/50 dark:bg-purple-950/40 dark:text-purple-50 dark:placeholder:text-purple-300/70 dark:focus:border-fuchsia-300/70 dark:focus:ring-fuchsia-300/10";
+
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 pb-28 pt-32">
       <div className="relative overflow-hidden rounded-[2.5rem] border border-pink-300 bg-linear-to-br from-white/80 to-pink-100/70 px-7 py-16 sm:px-14 sm:py-20 dark:border-purple-700/70 dark:from-purple-950/60 dark:to-fuchsia-950/20">
@@ -62,7 +64,7 @@ export default function Contact() {
 
         <div className="relative z-10">
           <div className="text-center">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-pink-500 dark:text-fuchsia-300">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-[#b12f73] dark:text-fuchsia-300">
               A little ✦ magic ✦ begins with hello
             </p>
 
@@ -104,7 +106,7 @@ export default function Contact() {
                   required
                   autoComplete="name"
                   placeholder="Your name"
-                  className="w-full rounded-2xl border border-pink-200 bg-white/70 px-4 py-3 text-[#493640] outline-none transition placeholder:text-[#9f8798] focus:border-pink-400 focus:ring-2 focus:ring-pink-200/60 dark:border-purple-700/50 dark:bg-purple-950/40 dark:text-purple-50 dark:placeholder:text-purple-300/40 dark:focus:border-fuchsia-300/70 dark:focus:ring-fuchsia-300/10"
+                  className={inputClasses}
                 />
               </div>
 
@@ -123,7 +125,7 @@ export default function Contact() {
                   required
                   autoComplete="email"
                   placeholder="you@example.com"
-                  className="w-full rounded-2xl border border-pink-200 bg-white/70 px-4 py-3 text-[#493640] outline-none transition placeholder:text-[#9f8798] focus:border-pink-400 focus:ring-2 focus:ring-pink-200/60 dark:border-purple-700/50 dark:bg-purple-950/40 dark:text-purple-50 dark:placeholder:text-purple-300/40 dark:focus:border-fuchsia-300/70 dark:focus:ring-fuchsia-300/10"
+                  className={inputClasses}
                 />
               </div>
             </div>
@@ -142,7 +144,7 @@ export default function Contact() {
                 type="text"
                 required
                 placeholder="What would you like to talk about?"
-                className="w-full rounded-2xl border border-pink-200 bg-white/70 px-4 py-3 text-[#493640] outline-none transition placeholder:text-[#9f8798] focus:border-pink-400 focus:ring-2 focus:ring-pink-200/60 dark:border-purple-700/50 dark:bg-purple-950/40 dark:text-purple-50 dark:placeholder:text-purple-300/40 dark:focus:border-fuchsia-300/70 dark:focus:ring-fuchsia-300/10"
+                className={inputClasses}
               />
             </div>
 
@@ -160,7 +162,7 @@ export default function Contact() {
                 required
                 rows={6}
                 placeholder="Write your message here..."
-                className="w-full resize-none rounded-2xl border border-pink-200 bg-white/70 px-4 py-3 text-[#493640] outline-none transition placeholder:text-[#9f8798] focus:border-pink-400 focus:ring-2 focus:ring-pink-200/60 dark:border-purple-700/50 dark:bg-purple-950/40 dark:text-purple-50 dark:placeholder:text-purple-300/40 dark:focus:border-fuchsia-300/70 dark:focus:ring-fuchsia-300/10"
+                className={`${inputClasses} resize-none`}
               />
             </div>
 
@@ -169,120 +171,131 @@ export default function Contact() {
                 type="submit"
                 disabled={status === "sending"}
                 className="
-    group relative
-    inline-flex cursor-pointer
-    items-center justify-center
-    rounded-full
+                  group relative
+                  inline-flex cursor-pointer
+                  items-center justify-center
+                  rounded-full
 
-    bg-[#e991b6]
-    px-8 py-3
-    font-medium text-white
+                  border border-[#dda2c298]
+                  bg-[#ffcae3]
+                  px-8 py-3
+                  font-medium
+                  text-[#4d2f45]
 
-    shadow-[0_5px_18px_rgba(217,107,158,0.14)]
+                  shadow-[0_5px_18px_rgba(217,107,158,0.14)]
 
-    transition-all
-    duration-300
-    ease-out
+                  transition-all
+                  duration-300
+                  ease-out
 
-    hover:-translate-y-1
-    hover:bg-[#dd7eaa]
-    hover:shadow-[0_8px_24px_rgba(217,107,158,0.24)]
+                  hover:-translate-y-1
+                  hover:border-[#d58eaf69]
+                  hover:bg-[#febada]
+                  hover:text-[#43283c]
+                  hover:shadow-[0_8px_24px_rgba(217,107,158,0.22)]
 
-    disabled:cursor-not-allowed
-    disabled:opacity-60
+                  focus-visible:outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-[#b12f73]
+                  focus-visible:ring-offset-2
 
-    dark:bg-purple-200
-    dark:text-purple-950
-    dark:shadow-[0_5px_18px_rgba(216,180,254,0.12)]
+                  disabled:cursor-not-allowed
+                  disabled:opacity-60
 
-    dark:hover:bg-fuchsia-200
-    dark:hover:shadow-[0_8px_24px_rgba(216,180,254,0.2)]
-  "
+                  dark:border-transparent
+                  dark:bg-purple-200
+                  dark:text-purple-950
+                  dark:shadow-[0_5px_18px_rgba(216,180,254,0.12)]
+
+                  dark:hover:bg-fuchsia-200
+                  dark:hover:text-purple-950
+                  dark:hover:shadow-[0_8px_24px_rgba(216,180,254,0.2)]
+
+                  dark:focus-visible:ring-fuchsia-300
+                  dark:focus-visible:ring-offset-[#0b0310]
+                "
               >
-                {/* Top-left sparkle */}
                 <span
                   aria-hidden="true"
                   className="
-      pointer-events-none
-      absolute
-      -left-1
-      -top-1
+                    pointer-events-none
+                    absolute
+                    -left-1
+                    -top-1
 
-      scale-75
-      text-pink-500
-      opacity-70
+                    scale-75
+                    text-pink-500
+                    opacity-70
 
-      transition-all
-      duration-300
+                    transition-all
+                    duration-300
 
-      group-hover:-left-2
-      group-hover:-top-2
-      group-hover:scale-100
-      group-hover:opacity-100
+                    group-hover:-left-2
+                    group-hover:-top-2
+                    group-hover:scale-100
+                    group-hover:opacity-100
 
-      dark:text-fuchsia-300
-    "
+                    dark:text-fuchsia-300
+                  "
                 >
                   <Sparkle className="h-3 w-3" />
                 </span>
 
-                {/* Bottom-right sparkle */}
                 <span
                   aria-hidden="true"
                   className="
-      pointer-events-none
-      absolute
-      -bottom-1
-      right-2
+                    pointer-events-none
+                    absolute
+                    -bottom-1
+                    right-2
 
-      scale-0
-      text-pink-400
-      opacity-0
+                    scale-0
+                    text-pink-400
+                    opacity-0
 
-      transition-all
-      delay-75
-      duration-300
+                    transition-all
+                    delay-75
+                    duration-300
 
-      group-hover:-bottom-2
-      group-hover:right-0
-      group-hover:scale-100
-      group-hover:opacity-90
+                    group-hover:-bottom-2
+                    group-hover:right-0
+                    group-hover:scale-100
+                    group-hover:opacity-90
 
-      dark:text-purple-300
-    "
+                    dark:text-purple-300
+                  "
                 >
                   <Sparkle className="h-2 w-2" />
                 </span>
 
-                {/* Pixie trail */}
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 90 18"
                   fill="none"
                   className="
-      pointer-events-none
-      absolute
-      -bottom-2.5
-      left-1/2
+                    pointer-events-none
+                    absolute
+                    -bottom-2.5
+                    left-1/2
 
-      h-4.5
-      w-20
-      -translate-x-1/2
+                    h-4.5
+                    w-20
+                    -translate-x-1/2
 
-      overflow-visible
+                    overflow-visible
 
-      text-pink-400/70
+                    text-pink-400/70
 
-      transition-all
-      duration-500
-      ease-out
+                    transition-all
+                    duration-500
+                    ease-out
 
-      group-hover:w-23
-      group-hover:text-pink-500
+                    group-hover:w-23
+                    group-hover:text-pink-500
 
-      dark:text-purple-300/60
-      dark:group-hover:text-fuchsia-300
-    "
+                    dark:text-purple-300/60
+                    dark:group-hover:text-fuchsia-300
+                  "
                 >
                   <path
                     d="M5 6 C24 15 34 12 45 8 C57 4 68 5 85 10"
@@ -324,9 +337,11 @@ export default function Contact() {
           <div className="mx-auto mt-10 flex max-w-2xl flex-col items-center">
             <div className="mb-5 flex w-full items-center gap-4">
               <span className="h-px flex-1 bg-pink-200 dark:bg-purple-700/50" />
-              <span className="text-xs uppercase tracking-[0.22em] text-[#6e5d69] dark:text-purple-300/60">
+
+              <span className="text-xs uppercase tracking-[0.22em] text-[#6e5d69] dark:text-purple-300/70">
                 Find me online
               </span>
+
               <span className="h-px flex-1 bg-pink-200 dark:bg-purple-700/50" />
             </div>
 

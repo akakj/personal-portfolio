@@ -1,4 +1,3 @@
-import { GithubIcon, LinkedInIcon } from "../ui/icons";
 import Sparkle from "../ui/Sparkle";
 import FairyButton from "../ui/FairyButton";
 
@@ -32,7 +31,7 @@ export default function Hero() {
 
         <h1 className="font-serif text-5xl font-medium leading-[1.08] tracking-tight text-[#492f3e] dark:text-[#fde9ff] sm:text-6xl lg:text-8xl">
           Hello there, I&apos;m{" "}
-          <span className="italic text-[#df64b3] dark:text-fuchsia-300">
+          <span className="italic text-[#b1236c] dark:text-fuchsia-300">
             Anna
           </span>
         </h1>
