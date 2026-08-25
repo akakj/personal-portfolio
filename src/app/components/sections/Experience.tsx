@@ -1,6 +1,7 @@
 import { education, experience } from "@/app/data/info";
 import SectionHeading from "../ui/SectionHeading";
 import Sparkle from "../ui/Sparkle";
+import { Reveal } from "../ui/Reveal";
 
 function FairyPill({ children }: { children: React.ReactNode }) {
   return (
@@ -151,7 +152,7 @@ export default function Experience() {
           dark:shadow-none
         "
       >
-        {/* decorative glow */}
+        {/* Decorative glow */}
         <div
           aria-hidden="true"
           className="
@@ -191,7 +192,7 @@ export default function Experience() {
           "
         >
           {/* Education */}
-          <div className="md:pr-10 lg:pr-12">
+          <Reveal preset="left" className="md:pr-10 lg:pr-12">
             <Subheading>Education</Subheading>
 
             {education.map((item) => (
@@ -254,9 +255,9 @@ export default function Experience() {
                 </div>
               </article>
             ))}
-          </div>
+          </Reveal>
 
-          {/* soft middle divider */}
+          {/* Soft middle divider */}
           <div
             aria-hidden="true"
             className="
@@ -280,7 +281,7 @@ export default function Experience() {
           />
 
           {/* Experience */}
-          <div className="md:pl-10 lg:pl-12">
+          <Reveal preset="right" className="md:pl-10 lg:pl-12">
             <Subheading>Experience</Subheading>
 
             {experience.map((item) => (
@@ -339,7 +340,7 @@ export default function Experience() {
                 </div>
               </article>
             ))}
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

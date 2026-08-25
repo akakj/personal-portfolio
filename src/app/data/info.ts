@@ -289,7 +289,7 @@ export const certificationStyles = {
   Azure: {
     card: `
       border-sky-300/80
-      bg-sky-50/45
+      bg-sky-50/70
 
       hover:border-sky-400
       hover:bg-sky-50/55

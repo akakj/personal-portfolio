@@ -1,17 +1,18 @@
 import { skills } from "@/app/data/info";
 import SectionHeading from "../ui/SectionHeading";
 import { fallbackStyle, categoryStyles } from "@/app/data/info";
+import { Stagger } from "../ui/Reveal";
 
 export default function Skills() {
   return (
     <section id="skills" className="mx-auto max-w-6xl px-6 py-28">
       <SectionHeading number="02" title="Skills & tools" />
 
-      <div className="space-y-7">
-        {Object.entries(skills).map(([category, categorySkills]) => {
-          const style =
-            categoryStyles[category as keyof typeof categoryStyles] ??
-            fallbackStyle;
+      <Stagger className="space-y-7">
+  {Object.entries(skills).map(([category, categorySkills]) => {
+    const style =
+      categoryStyles[category as keyof typeof categoryStyles] ??
+      fallbackStyle;
 
           return (
             <div
@@ -59,7 +60,7 @@ export default function Skills() {
             </div>
           );
         })}
-      </div>
+      </Stagger>
     </section>
   );
 }

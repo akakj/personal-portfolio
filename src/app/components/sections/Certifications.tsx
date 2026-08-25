@@ -5,6 +5,7 @@ import {
   certifications,
   CertificationProvider,
 } from "@/app/data/info";
+import { Stagger } from "../ui/Reveal";
 
 function ProviderLogo({
   provider,
@@ -113,7 +114,10 @@ export default function Certifications() {
     >
       <SectionHeading number="06" title="Certifications" />
 
-      <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+      <Stagger
+        className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2"
+        stagger={0.12}
+      >
         {certifications.map((certification) => {
           const provider =
             certification.provider as CertificationProvider;
@@ -124,7 +128,7 @@ export default function Certifications() {
             <article
               key={certification.name}
               className={`
-                group relative overflow-hidden
+                group relative h-full overflow-hidden
                 rounded-4xl
                 border
                 px-8 py-8
@@ -248,7 +252,6 @@ export default function Certifications() {
                 </div>
 
                 <div className="max-w-md">
-                  {/* Keep title neutral so it remains dominant */}
                   <h3
                     className="
                       text-xl font-semibold
@@ -297,7 +300,7 @@ export default function Certifications() {
             </article>
           );
         })}
-      </div>
+      </Stagger>
     </section>
   );
 }

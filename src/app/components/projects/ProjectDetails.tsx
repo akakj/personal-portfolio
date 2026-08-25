@@ -1,16 +1,59 @@
-import { GithubLogoIcon } from "@phosphor-icons/react/ssr";
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
+import { GithubLogoIcon } from "@phosphor-icons/react/dist/icons/GithubLogo";
 
 import { features, projects } from "@/app/data/info";
-import Sparkle from "./ui/Sparkle";
+import Sparkle from "../ui/Sparkle";
 
 export default function ProjectDetails() {
   const project = projects[0];
+  const reduceMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: reduceMotion ? 0 : 0.14,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: reduceMotion
+      ? {
+          opacity: 1,
+          y: 0,
+        }
+      : {
+          opacity: 0,
+          y: 10,
+        },
+
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: reduceMotion ? 0 : 0.55,
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
+    },
+  };
 
   return (
-    <>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        once: true,
+        amount: 0.12,
+      }}
+    >
       {/* Project details */}
       <div className="relative mt-10 grid gap-10 border-t border-pink-200/70 pt-9 lg:grid-cols-[1.15fr_0.85fr] dark:border-purple-700/30">
-        <div>
+        {/* Description + technologies */}
+        <motion.div variants={itemVariants}>
           <h4 className="text-xl font-semibold">
             Full-stack coding practice platform
           </h4>
@@ -30,10 +73,17 @@ export default function ProjectDetails() {
                 key={technology}
                 className="
                   rounded-full
-                  border border-pink-200/70
+
+                  border
+                  border-pink-200/70
+
                   bg-pink-50/80
-                  px-3 py-1.5
-                  text-xs text-pink-700
+
+                  px-3
+                  py-1.5
+
+                  text-xs
+                  text-pink-700
 
                   dark:border-purple-700/40
                   dark:bg-purple-900/50
@@ -44,13 +94,14 @@ export default function ProjectDetails() {
               </span>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Highlights */}
-        <div>
+        <motion.div variants={itemVariants}>
           <p className="mb-4 text-xs font-medium uppercase tracking-[0.18em] text-[#b12f73] dark:text-fuchsia-300">
-  Highlights
-</p>
+            Highlights
+          </p>
+
           <ul className="space-y-3">
             {features.map((feature) => (
               <li
@@ -60,9 +111,16 @@ export default function ProjectDetails() {
                 <span
                   aria-hidden="true"
                   className="
-                    mt-2 h-1.5 w-1.5 shrink-0 rounded-full
+                    mt-2
+                    h-1.5
+                    w-1.5
+                    shrink-0
+                    rounded-full
+
                     bg-pink-400
+
                     shadow-[0_0_8px_rgba(244,114,182,0.6)]
+
                     dark:bg-fuchsia-400
                   "
                 />
@@ -71,11 +129,14 @@ export default function ProjectDetails() {
               </li>
             ))}
           </ul>
-        </div>
+        </motion.div>
       </div>
 
       {/* Project links */}
-      <footer className="relative mt-10 flex flex-wrap items-center gap-6">
+      <motion.footer
+        variants={itemVariants}
+        className="relative mt-10 flex flex-wrap items-center gap-6"
+      >
         {project?.live && (
           <a
             href={project.live}
@@ -84,15 +145,22 @@ export default function ProjectDetails() {
             className="
               group/codey
               relative
-              inline-flex items-center gap-2.5
+              inline-flex
+              items-center
+              gap-2.5
               overflow-hidden
               rounded-full
 
-              border border-[#fc91c331]
-              bg-[#fbb8d4]
-              px-6 py-3
+              border
+              border-[#fc91c331]
 
-              text-sm font-semibold
+              bg-[#fbb8d4]
+
+              px-6
+              py-3
+
+              text-sm
+              font-semibold
               text-[#43283c]
 
               shadow-[0_5px_18px_rgba(217,107,158,0.18)]
@@ -128,7 +196,9 @@ export default function ProjectDetails() {
               aria-hidden="true"
               className="
                 pointer-events-none
-                absolute inset-0
+                absolute
+                inset-0
+
                 -translate-x-full
 
                 bg-linear-to-r
@@ -150,8 +220,11 @@ export default function ProjectDetails() {
 
             <Sparkle
               className="
-                relative z-10
-                h-3.5 w-3.5
+                relative
+                z-10
+
+                h-3.5
+                w-3.5
 
                 transition-transform
                 duration-500
@@ -167,9 +240,12 @@ export default function ProjectDetails() {
             <span
               aria-hidden="true"
               className="
-                relative z-10
+                relative
+                z-10
+
                 transition-transform
                 duration-300
+
                 group-hover/codey:translate-x-0.5
                 group-hover/codey:-translate-y-0.5
               "
@@ -186,11 +262,16 @@ export default function ProjectDetails() {
           rel="noreferrer"
           className="
             group/github
-            inline-flex items-center gap-2.5
+            inline-flex
+            items-center
+            gap-2.5
             rounded-full
-            px-2 py-3
 
-            text-sm font-medium
+            px-2
+            py-3
+
+            text-sm
+            font-medium
             text-[#6f596a]
 
             transition-colors
@@ -217,6 +298,7 @@ export default function ProjectDetails() {
               transition-transform
               duration-1050
               ease-out
+
               group-hover/github:rotate-80
             "
           />
@@ -228,6 +310,7 @@ export default function ProjectDetails() {
             className="
               transition-transform
               duration-300
+
               group-hover/github:translate-x-0.5
               group-hover/github:-translate-y-0.5
             "
@@ -235,7 +318,7 @@ export default function ProjectDetails() {
             ↗
           </span>
         </a>
-      </footer>
-    </>
+      </motion.footer>
+    </motion.div>
   );
 }
