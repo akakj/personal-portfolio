@@ -268,8 +268,7 @@ export default function StorybookGallery({
                   alt={`${slide.title} screenshot from Codey`}
                   fill
                   priority={activeSlide === 0}
-                  sizes="(max-width: 768px) 100vw, 1100px"
-                  unoptimized
+                  sizes="(max-width: 640px) calc(100vw - 7rem), (max-width: 1152px) calc(100vw - 10rem), 950px"
                   className="object-contain dark:hidden"
                 />
 
@@ -278,8 +277,7 @@ export default function StorybookGallery({
                   alt={`${slide.title} screenshot from Codey`}
                   fill
                   priority={activeSlide === 0}
-                  sizes="(max-width: 768px) 100vw, 1100px"
-                  unoptimized
+                  sizes="(max-width: 640px) calc(100vw - 7rem), (max-width: 1152px) calc(100vw - 10rem), 950px"
                   className="hidden object-contain dark:block"
                 />
               </button>

@@ -13,9 +13,11 @@ export const skills = {
   "Frameworks & Frontend": ["Next.js", "React", "Tailwind CSS"],
 
   "Data & APIs": [
+    "Supabase",
+    "AWS",
+    "Azure",
     "PostgreSQL",
     "SQL",
-    "Supabase",
     "MongoDB",
     "DynamoDB",
     "REST APIs",
@@ -116,6 +118,8 @@ export const slides = [
   {
     lightSrc: "/projects/codey/light/ProblemWorkspace.png",
     darkSrc: "/projects/codey/dark/ProblemWorkspace.png",
+    mobileLightSrc: "/projects/codey/light/ProblemWorkspace_mob.png",
+    mobileDarkSrc: "/projects/codey/dark/ProblemWorkspace_mob.png",
     title: "Integrated coding workspace",
     description:
       "Write, execute and submit solutions directly in the browser using an integrated Monaco editor and test-case runner.",
@@ -123,6 +127,8 @@ export const slides = [
   {
     lightSrc: "/projects/codey/light/AnalyticsDashboard.png",
     darkSrc: "/projects/codey/dark/AnalyticsDashboard.png",
+    mobileLightSrc: "/projects/codey/light/AnalyticsDashboard_mob.png",
+    mobileDarkSrc: "/projects/codey/dark/AnalyticsDashboard_mob.png",
     title: "Performance analytics",
     description:
       "Track completion, acceptance rates, language usage, submission activity and problem-solving performance.",
@@ -130,6 +136,8 @@ export const slides = [
   {
     lightSrc: "/projects/codey/light/ProblemList.png",
     darkSrc: "/projects/codey/dark/ProblemList.png",
+    mobileLightSrc: "/projects/codey/light/ProblemList_mob.png",
+    mobileDarkSrc: "/projects/codey/dark/ProblemList_mob.png",
     title: "Problem library",
     description:
       "Search and work through algorithm problems while tracking difficulty and completion status.",
@@ -137,6 +145,8 @@ export const slides = [
   {
     lightSrc: "/projects/codey/light/SubmissionHistory.png",
     darkSrc: "/projects/codey/dark/SubmissionHistory.png",
+    mobileLightSrc: "/projects/codey/light/SubmissionHistory_mob.png",
+    mobileDarkSrc: "/projects/codey/dark/SubmissionHistory_mob.png",
     title: "Submission history",
     description:
       "Review previous attempts, results, language, runtime, memory usage and test-case performance.",

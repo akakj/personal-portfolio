@@ -119,10 +119,10 @@ export default function About() {
           <motion.p
             className="
               mt-5 text-center
-              font-serif text-2xl italic
+              text-xl
               text-[#4b315d]
 
-              sm:text-3xl
+              sm:text-xl
 
               dark:text-purple-100
             "

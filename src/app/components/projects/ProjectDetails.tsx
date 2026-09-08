@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { GithubLogoIcon } from "@phosphor-icons/react/dist/icons/GithubLogo";
+import { ArrowUpRightIcon } from "@phosphor-icons/react";
 
 import { features, projects } from "@/app/data/info";
 import Sparkle from "../ui/Sparkle";
@@ -132,193 +133,199 @@ export default function ProjectDetails() {
         </motion.div>
       </div>
 
-      {/* Project links */}
-      <motion.footer
-        variants={itemVariants}
-        className="relative mt-10 flex flex-wrap items-center gap-6"
-      >
-        {project?.live && (
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noreferrer"
-            className="
-              group/codey
-              relative
-              inline-flex
-              items-center
-              gap-2.5
-              overflow-hidden
-              rounded-full
+     {/* Project links */}
+<motion.footer
+  variants={itemVariants}
+  className="relative mt-10 flex flex-wrap items-center gap-6"
+>
+  {project?.live && (
+    <a
+      href={project.live}
+      target="_blank"
+      rel="noreferrer"
+      className="
+        group/codey
+        relative
+        inline-flex
+        items-center
+        gap-2.5
+        overflow-hidden
+        rounded-full
 
-              border
-              border-[#fc91c331]
+        border
+        border-[#fc91c331]
 
-              bg-[#fbb8d4]
+        bg-[#fbb8d4]
 
-              px-6
-              py-3
+        px-6
+        py-3
 
-              text-sm
-              font-semibold
-              text-[#43283c]
+        text-sm
+        font-semibold
+        text-[#43283c]
 
-              shadow-[0_5px_18px_rgba(217,107,158,0.18)]
+        shadow-[0_5px_18px_rgba(217,107,158,0.18)]
 
-              transition-all
-              duration-300
-              ease-out
+        transition-all
+        duration-300
+        ease-out
 
-              hover:-translate-y-0.5
-              hover:border-[#ff97c98e]
-              hover:shadow-[0_7px_22px_rgba(217,107,158,0.28)]
+        hover:-translate-y-0.5
+        hover:border-[#ff97c98e]
+        hover:shadow-[0_7px_22px_rgba(217,107,158,0.28)]
 
-              focus-visible:outline-none
-              focus-visible:ring-2
-              focus-visible:ring-pink-400
-              focus-visible:ring-offset-2
+        focus-visible:outline-none
+        focus-visible:ring-2
+        focus-visible:ring-pink-400
+        focus-visible:ring-offset-2
 
-              dark:border-purple-300/50
-              dark:bg-purple-200
-              dark:text-purple-950
-              dark:shadow-[0_5px_20px_rgba(216,180,254,0.10)]
+        dark:border-purple-300/50
+        dark:bg-purple-200
+        dark:text-purple-950
+        dark:shadow-[0_5px_20px_rgba(216,180,254,0.10)]
 
-              dark:hover:border-fuchsia-200/70
-              dark:hover:bg-[#e8c6fa]
-              dark:hover:shadow-[0_7px_24px_rgba(216,180,254,0.18)]
+        dark:hover:border-fuchsia-200/70
+        dark:hover:bg-[#e8c6fa]
+        dark:hover:shadow-[0_7px_24px_rgba(216,180,254,0.18)]
 
-              dark:focus-visible:ring-fuchsia-300
-              dark:focus-visible:ring-offset-[#0b0310]
-            "
-          >
-            {/* Soft internal shimmer */}
-            <span
-              aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute
-                inset-0
+        dark:focus-visible:ring-fuchsia-300
+        dark:focus-visible:ring-offset-[#0b0310]
+      "
+    >
+      {/* Soft internal shimmer */}
+      <span
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          inset-0
 
-                -translate-x-full
+          -translate-x-full
 
-                bg-linear-to-r
-                from-transparent
-                via-white/45
-                to-transparent
+          bg-linear-to-r
+          from-transparent
+          via-white/45
+          to-transparent
 
-                transition-transform
-                duration-700
-                ease-out
+          transition-transform
+          duration-700
+          ease-out
 
-                group-hover/codey:translate-x-full
+          group-hover/codey:translate-x-full
 
-                dark:from-transparent
-                dark:via-purple-500/20
-                dark:to-transparent
-              "
-            />
+          dark:from-transparent
+          dark:via-purple-500/20
+          dark:to-transparent
+        "
+      />
 
-            <Sparkle
-              className="
-                relative
-                z-10
+      <Sparkle
+        className="
+          relative
+          z-10
 
-                h-3.5
-                w-3.5
+          h-3.5
+          w-3.5
 
-                transition-transform
-                duration-500
-                ease-out
+          transition-transform
+          duration-500
+          ease-out
 
-                group-hover/codey:rotate-12
-                group-hover/codey:scale-110
-              "
-            />
+          group-hover/codey:rotate-12
+          group-hover/codey:scale-110
+        "
+      />
 
-            <span className="relative z-10">View Codey</span>
+      <span className="relative z-10">View Codey</span>
 
-            <span
-              aria-hidden="true"
-              className="
-                relative
-                z-10
+      <ArrowUpRightIcon
+        size={15}
+        weight="bold"
+        className="
+          relative
+          z-10
+          shrink-0
 
-                transition-transform
-                duration-300
+          transition-transform
+          duration-300
+          ease-out
 
-                group-hover/codey:translate-x-0.5
-                group-hover/codey:-translate-y-0.5
-              "
-            >
-              ↗
-            </span>
-          </a>
-        )}
+          group-hover/codey:translate-x-0.5
+          group-hover/codey:-translate-y-0.5
+        "
+      />
+    </a>
+  )}
 
-        {/* GitHub */}
-        <a
-          href={project?.github ?? "https://github.com/akakj/Codey"}
-          target="_blank"
-          rel="noreferrer"
-          className="
-            group/github
-            inline-flex
-            items-center
-            gap-2.5
-            rounded-full
+  {/* GitHub */}
+  <a
+    href={project?.github ?? "https://github.com/akakj/Codey"}
+    target="_blank"
+    rel="noreferrer"
+    className="
+      group/github
+      inline-flex
+      items-center
+      gap-2.5
+      rounded-full
 
-            px-2
-            py-3
+      px-2
+      py-3
 
-            text-sm
-            font-medium
-            text-[#6f596a]
+      text-sm
+      font-medium
+      text-[#6f596a]
 
-            transition-colors
-            duration-300
+      transition-colors
+      duration-300
 
-            hover:text-pink-600
+      hover:text-pink-600
 
-            focus-visible:outline-none
-            focus-visible:ring-2
-            focus-visible:ring-pink-400
-            focus-visible:ring-offset-2
+      focus-visible:outline-none
+      focus-visible:ring-2
+      focus-visible:ring-pink-400
+      focus-visible:ring-offset-2
 
-            dark:text-purple-200
-            dark:hover:text-fuchsia-200
+      dark:text-purple-200
+      dark:hover:text-fuchsia-200
 
-            dark:focus-visible:ring-fuchsia-300
-            dark:focus-visible:ring-offset-[#0b0310]
-          "
-        >
-          <GithubLogoIcon
-            size={21}
-            weight="fill"
-            className="
-              transition-transform
-              duration-1050
-              ease-out
+      dark:focus-visible:ring-fuchsia-300
+      dark:focus-visible:ring-offset-[#0b0310]
+    "
+  >
+    <GithubLogoIcon
+      size={21}
+      weight="fill"
+      className="
+        shrink-0
 
-              group-hover/github:rotate-80
-            "
-          />
+        transition-transform
+        duration-1050
+        ease-out
 
-          <span>GitHub</span>
+        group-hover/github:rotate-80
+      "
+    />
 
-          <span
-            aria-hidden="true"
-            className="
-              transition-transform
-              duration-300
+    <span>GitHub</span>
 
-              group-hover/github:translate-x-0.5
-              group-hover/github:-translate-y-0.5
-            "
-          >
-            ↗
-          </span>
-        </a>
-      </motion.footer>
+    <ArrowUpRightIcon
+      size={15}
+      weight="bold"
+      className="
+        shrink-0
+
+        transition-transform
+        duration-300
+        ease-out
+
+        group-hover/github:translate-x-0.5
+        group-hover/github:-translate-y-0.5
+      "
+    />
+  </a>
+</motion.footer>
+      
     </motion.div>
   );
 }

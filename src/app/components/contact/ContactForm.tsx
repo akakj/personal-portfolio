@@ -254,7 +254,7 @@ export default function ContactForm() {
             rounded-full
 
             border
-            border-[#dda2c298]
+            border-[#dda2c373]
             bg-[#ffcae3]
             px-8
             py-3

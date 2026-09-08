@@ -140,7 +140,8 @@ export default function FullscreenGalleryViewer({
           relative
           flex
           h-[calc(100dvh-3rem)]
-          w-[calc(100vw-7rem)]
+          w-[calc(100vw-1.5rem)]
+          sm:w-[calc(100vw-7rem)]
           max-w-[1800px]
           cursor-default
           items-center justify-center
@@ -149,42 +150,91 @@ export default function FullscreenGalleryViewer({
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <Image
-          src={slide.lightSrc}
-          alt={`${slide.title} enlarged screenshot from Codey`}
-          width={1600}
-          height={1000}
-          priority
-          unoptimized
-          className="
-            h-auto
-            max-h-[calc(100dvh-3rem)]
-            w-auto
-            max-w-full
-            rounded-3xl
-            object-contain
-            dark:hidden
-          "
-        />
+        {/* Mobile / portrait — light */}
+<Image
+  src={slide.mobileLightSrc}
+  alt={`${slide.title} enlarged screenshot from Codey`}
+  width={1200}
+  height={1500}
+  priority
+  unoptimized
+  className="
+    h-auto
+    max-h-[calc(100dvh-5rem)]
+    w-auto
+    max-w-full
+    rounded-3xl
+    object-contain
 
-        <Image
-          src={slide.darkSrc}
-          alt={`${slide.title} enlarged screenshot from Codey`}
-          width={1600}
-          height={1000}
-          priority
-          unoptimized
-          className="
-            hidden
-            h-auto
-            max-h-[calc(100dvh-3rem)]
-            w-auto
-            max-w-full
-            rounded-3xl
-            object-contain
-            dark:block
-          "
-        />
+    dark:hidden
+    sm:hidden
+  "
+/>
+
+{/* Mobile / portrait — dark */}
+<Image
+  src={slide.mobileDarkSrc}
+  alt={`${slide.title} enlarged screenshot from Codey`}
+  width={1200}
+  height={1500}
+  priority
+  unoptimized
+  className="
+    hidden
+    h-auto
+    max-h-[calc(100dvh-5rem)]
+    w-auto
+    max-w-full
+    rounded-3xl
+    object-contain
+
+    dark:block
+    sm:dark:hidden
+  "
+/>
+
+{/* Desktop — light */}
+<Image
+  src={slide.lightSrc}
+  alt={`${slide.title} enlarged screenshot from Codey`}
+  width={1600}
+  height={1000}
+  priority
+  unoptimized
+  className="
+    hidden
+    h-auto
+    max-h-[calc(100dvh-3rem)]
+    w-auto
+    max-w-full
+    rounded-3xl
+    object-contain
+
+    sm:block
+    dark:hidden
+  "
+/>
+
+{/* Desktop — dark */}
+<Image
+  src={slide.darkSrc}
+  alt={`${slide.title} enlarged screenshot from Codey`}
+  width={1600}
+  height={1000}
+  priority
+  unoptimized
+  className="
+    hidden
+    h-auto
+    max-h-[calc(100dvh-3rem)]
+    w-auto
+    max-w-full
+    rounded-3xl
+    object-contain
+
+    sm:dark:block
+  "
+/>
       </div>
 
       <button

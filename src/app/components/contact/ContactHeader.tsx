@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 
-const headingWords = ["Let's", "create", "something", "together."];
+const headingWords = ["Let's", "create", "something", "together"];
 
 export default function ContactHeader() {
   const reduceMotion = useReducedMotion();

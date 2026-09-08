@@ -16,7 +16,9 @@ export default function Footer() {
           <span className="inline-flex items-center gap-2 whitespace-nowrap">
             <Sparkle className="h-3 w-3 shrink-0 text-pink-400 dark:text-fuchsia-300" />
 
-            <span>a little fairy dust.</span>
+            <span>a little fairy dust</span>
+
+            <Sparkle className="h-3 w-3 shrink-0 text-pink-400 dark:text-fuchsia-300" />
           </span>
         </div>
       </div>

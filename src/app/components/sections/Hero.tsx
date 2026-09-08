@@ -25,12 +25,10 @@ const introWords = [
 ];
 
 const subtitlePhrases = [
-  "Computer science",
-  "student",
-  "who loves building",
-  "accessible, polished,",
-  "and genuinely useful",
-  "software.",
+  "I grew up making things",
+  "for my parents’ walls.",
+  "Now I build software",
+  "for the wall of the internet.",
 ];
 
 type WrittenWordProps = {
