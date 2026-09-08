@@ -2,9 +2,22 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* =========================================================
+   Page theme
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fff3ff;
+  --foreground: #371c59;
+
+  color-scheme: light;
+}
+
+html.dark {
+  --background: #0d0715;
+  --foreground: #f8efff;
+
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -15,18 +28,20 @@
   --font-serif: var(--font-fleur);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  min-height: 100%;
+  background-color: var(--background);
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-lora), serif;
   font-style: italic;
+
+  transition:
+    background-color 500ms ease,
+    color 500ms ease;
 }
 
 /* =========================================================

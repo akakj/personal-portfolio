@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState, type ReactNode } from "react";
+import { Fragment } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
 import Sparkle from "../ui/Sparkle";
@@ -126,6 +126,7 @@ function Anna({ disabled = false }: AnnaProps) {
         }}
       >
         Anna
+
         {!disabled && (
           <motion.span
             aria-hidden="true"
@@ -283,10 +284,10 @@ export default function Hero() {
           <span className="font-medium">Software Engineer</span>
         </motion.div>
 
-        {/* Storybook-style heading */}
+        {/* Heading */}
         <h1
           className="
-            font-serif text-5xl font-medium
+            font-serif text-[2.75rem] font-medium
             leading-[1.15] tracking-tight
             text-[#492f3e]
             dark:text-[#fde9ff]
@@ -294,11 +295,48 @@ export default function Hero() {
             lg:text-8xl
           "
         >
-          {/* Complete version for screen readers. */}
-          <span className="sr-only">Hello there, I&apos;m Anna</span>
+          <span className="sr-only">
+            Hello there, I&apos;m Anna
+          </span>
 
-          {/* Animated visual version. */}
-          <span aria-hidden="true" className="block pb-[0.08em]">
+          {/* Mobile: simple reveal from the left */}
+          <motion.span
+            aria-hidden="true"
+            className="block pb-[0.08em] sm:hidden"
+            initial={
+              reduceMotion
+                ? false
+                : {
+                    opacity: 0,
+                    x: -28,
+                  }
+            }
+            animate={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              duration: 0.7,
+              delay: 0.25,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            Hello there, I&apos;m{" "}
+            <span
+              className="
+                italic text-[#b1236c]
+                dark:text-fuchsia-300
+              "
+            >
+              Anna
+            </span>
+          </motion.span>
+
+          {/* Desktop/tablet: writing animation */}
+          <span
+            aria-hidden="true"
+            className="hidden pb-[0.08em] sm:block"
+          >
             {introWords.map((word, index) => (
               <Fragment key={word.text}>
                 <WrittenWord
@@ -316,7 +354,7 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* Description fills the page phrase by phrase. */}
+        {/* Description */}
         <h2
           className="
             mt-5 max-w-3xl
@@ -327,11 +365,39 @@ export default function Hero() {
           "
         >
           <span className="sr-only">
-            Computer Science student who loves building accessible, polished,
-            and genuinely useful software.
+            {subtitlePhrases.join(" ")}
           </span>
 
-          <span aria-hidden="true">
+          {/* Mobile: softer reveal from left */}
+          <motion.span
+            aria-hidden="true"
+            className="block sm:hidden"
+            initial={
+              reduceMotion
+                ? false
+                : {
+                    opacity: 0,
+                    x: -20,
+                  }
+            }
+            animate={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              duration: 0.7,
+              delay: 0.48,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            {subtitlePhrases.join(" ")}
+          </motion.span>
+
+          {/* Desktop/tablet: writing animation */}
+          <span
+            aria-hidden="true"
+            className="hidden sm:inline"
+          >
             {subtitlePhrases.map((phrase, index) => (
               <Fragment key={phrase}>
                 <WrittenPhrase
@@ -347,6 +413,7 @@ export default function Hero() {
           </span>
         </h2>
 
+        {/* Buttons */}
         <motion.div
           className="
             mt-10 flex flex-wrap
@@ -358,8 +425,8 @@ export default function Hero() {
             hidden: {},
             visible: {
               transition: {
-                delayChildren: 3.15,
-                staggerChildren: 0.14,
+                delayChildren: 0.8,
+                staggerChildren: 0.12,
               },
             },
           }}
@@ -382,7 +449,9 @@ export default function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <FairyButton href="#projects">View my work</FairyButton>
+            <FairyButton href="#projects">
+              View my work
+            </FairyButton>
           </motion.div>
 
           <motion.div
@@ -403,7 +472,10 @@ export default function Hero() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <FairyButton href="#contact" variant="secondary">
+            <FairyButton
+              href="#contact"
+              variant="secondary"
+            >
               Get in touch
             </FairyButton>
           </motion.div>

@@ -7,7 +7,15 @@ import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 
 import { slides } from "@/app/data/info";
 
-type ProjectSlide = (typeof slides)[number];
+type ProjectSlide = {
+  lightSrc: string;
+  darkSrc: string;
+  mobileLightSrc: string;
+  mobileDarkSrc: string;
+  title: string;
+  description: string;
+};
+
 
 type FullscreenGalleryViewerProps = {
   slide: ProjectSlide;
@@ -72,6 +80,7 @@ export default function FullscreenGalleryViewer({
       "
       onClick={onClose}
     >
+      {/* Close button */}
       <button
         type="button"
         onClick={onClose}
@@ -102,6 +111,7 @@ export default function FullscreenGalleryViewer({
         ×
       </button>
 
+      {/* Desktop previous button */}
       <button
         type="button"
         onClick={(event) => {
@@ -110,8 +120,8 @@ export default function FullscreenGalleryViewer({
         }}
         aria-label="Previous Codey screenshot"
         className="
-          absolute left-3 top-1/2 z-30
-          flex h-11 w-11
+          absolute left-6 top-1/2 z-30
+          hidden h-12 w-12
           -translate-y-1/2
           cursor-pointer
           items-center justify-center
@@ -129,114 +139,116 @@ export default function FullscreenGalleryViewer({
           focus-visible:outline-offset-2
           focus-visible:outline-fuchsia-300
 
-          sm:left-6 sm:h-12 sm:w-12
+          sm:flex
         "
       >
         <CaretLeftIcon size={22} />
       </button>
 
+      {/* Screenshot */}
       <div
         className="
           relative
           flex
           h-[calc(100dvh-3rem)]
           w-[calc(100vw-1.5rem)]
-          sm:w-[calc(100vw-7rem)]
           max-w-[1800px]
           cursor-default
           items-center justify-center
+          sm:w-[calc(100vw-7rem)]
         "
         onClick={(event) => event.stopPropagation()}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
         {/* Mobile / portrait — light */}
-<Image
-  src={slide.mobileLightSrc}
-  alt={`${slide.title} enlarged screenshot from Codey`}
-  width={1200}
-  height={1500}
-  priority
-  unoptimized
-  className="
-    h-auto
-    max-h-[calc(100dvh-5rem)]
-    w-auto
-    max-w-full
-    rounded-3xl
-    object-contain
+        <Image
+          src={slide.mobileLightSrc}
+          alt={`${slide.title} enlarged screenshot from Codey`}
+          width={1200}
+          height={1500}
+          priority
+          unoptimized
+          className="
+            h-auto
+            max-h-[calc(100dvh-9rem)]
+            w-auto
+            max-w-full
+            rounded-xl
+            object-contain
 
-    dark:hidden
-    sm:hidden
-  "
-/>
+            dark:hidden
+            sm:hidden
+          "
+        />
 
-{/* Mobile / portrait — dark */}
-<Image
-  src={slide.mobileDarkSrc}
-  alt={`${slide.title} enlarged screenshot from Codey`}
-  width={1200}
-  height={1500}
-  priority
-  unoptimized
-  className="
-    hidden
-    h-auto
-    max-h-[calc(100dvh-5rem)]
-    w-auto
-    max-w-full
-    rounded-3xl
-    object-contain
+        {/* Mobile / portrait — dark */}
+        <Image
+          src={slide.mobileDarkSrc}
+          alt={`${slide.title} enlarged screenshot from Codey`}
+          width={1200}
+          height={1500}
+          priority
+          unoptimized
+          className="
+            hidden
+            h-auto
+            max-h-[calc(100dvh-9rem)]
+            w-auto
+            max-w-full
+            rounded-xl
+            object-contain
 
-    dark:block
-    sm:dark:hidden
-  "
-/>
+            dark:block
+            sm:dark:hidden
+          "
+        />
 
-{/* Desktop — light */}
-<Image
-  src={slide.lightSrc}
-  alt={`${slide.title} enlarged screenshot from Codey`}
-  width={1600}
-  height={1000}
-  priority
-  unoptimized
-  className="
-    hidden
-    h-auto
-    max-h-[calc(100dvh-3rem)]
-    w-auto
-    max-w-full
-    rounded-3xl
-    object-contain
+        {/* Desktop — light */}
+        <Image
+          src={slide.lightSrc}
+          alt={`${slide.title} enlarged screenshot from Codey`}
+          width={1600}
+          height={1000}
+          priority
+          unoptimized
+          className="
+            hidden
+            h-auto
+            max-h-[calc(100dvh-3rem)]
+            w-auto
+            max-w-full
+            rounded-3xl
+            object-contain
 
-    sm:block
-    dark:hidden
-  "
-/>
+            sm:block
+            dark:hidden
+          "
+        />
 
-{/* Desktop — dark */}
-<Image
-  src={slide.darkSrc}
-  alt={`${slide.title} enlarged screenshot from Codey`}
-  width={1600}
-  height={1000}
-  priority
-  unoptimized
-  className="
-    hidden
-    h-auto
-    max-h-[calc(100dvh-3rem)]
-    w-auto
-    max-w-full
-    rounded-3xl
-    object-contain
+        {/* Desktop — dark */}
+        <Image
+          src={slide.darkSrc}
+          alt={`${slide.title} enlarged screenshot from Codey`}
+          width={1600}
+          height={1000}
+          priority
+          unoptimized
+          className="
+            hidden
+            h-auto
+            max-h-[calc(100dvh-3rem)]
+            w-auto
+            max-w-full
+            rounded-3xl
+            object-contain
 
-    sm:dark:block
-  "
-/>
+            sm:dark:block
+          "
+        />
       </div>
 
+      {/* Desktop next button */}
       <button
         type="button"
         onClick={(event) => {
@@ -245,8 +257,8 @@ export default function FullscreenGalleryViewer({
         }}
         aria-label="Next Codey screenshot"
         className="
-          absolute right-3 top-1/2 z-30
-          flex h-11 w-11
+          absolute right-6 top-1/2 z-30
+          hidden h-12 w-12
           -translate-y-1/2
           cursor-pointer
           items-center justify-center
@@ -264,23 +276,101 @@ export default function FullscreenGalleryViewer({
           focus-visible:outline-offset-2
           focus-visible:outline-fuchsia-300
 
-          sm:right-6 sm:h-12 sm:w-12
+          sm:flex
         "
       >
         <CaretRightIcon size={22} />
       </button>
 
+      {/* Mobile navigation */}
       <div
         className="
           absolute bottom-4 left-1/2 z-30
-          -translate-x-1/2
+          flex -translate-x-1/2
+          items-center gap-3
+          sm:hidden
+        "
+        onClick={(event) => event.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={onPrevious}
+          aria-label="Previous Codey screenshot"
+          className="
+            flex h-11 w-11
+            cursor-pointer
+            items-center justify-center
+            rounded-full
+            border border-white/20
+            bg-black/70
+            text-white
+            backdrop-blur-md
+            transition
+
+            hover:scale-105
+            hover:bg-black/80
+
+            focus-visible:outline-2
+            focus-visible:outline-offset-2
+            focus-visible:outline-fuchsia-300
+          "
+        >
+          <CaretLeftIcon size={22} />
+        </button>
+
+        <div
+          className="
+            rounded-full
+            border border-white/20
+            bg-black/70
+            px-4 py-2
+            text-xs text-white
+            backdrop-blur-md
+          "
+        >
+          {activeSlide + 1} / {slideCount}
+        </div>
+
+        <button
+          type="button"
+          onClick={onNext}
+          aria-label="Next Codey screenshot"
+          className="
+            flex h-11 w-11
+            cursor-pointer
+            items-center justify-center
+            rounded-full
+            border border-white/20
+            bg-black/70
+            text-white
+            backdrop-blur-md
+            transition
+
+            hover:scale-105
+            hover:bg-black/80
+
+            focus-visible:outline-2
+            focus-visible:outline-offset-2
+            focus-visible:outline-fuchsia-300
+          "
+        >
+          <CaretRightIcon size={22} />
+        </button>
+      </div>
+
+      {/* Desktop slide counter */}
+      <div
+        className="
+          absolute bottom-6 left-1/2 z-30
+          hidden -translate-x-1/2
           rounded-full
           border border-white/20
           bg-black/70
           px-4 py-1.5
           text-xs text-white
           backdrop-blur-md
-          sm:bottom-6
+
+          sm:block
         "
       >
         {activeSlide + 1} / {slideCount}

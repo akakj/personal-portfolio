@@ -13,7 +13,7 @@ export default function SectionHeading({
       preset="heading"
       className="mb-14 flex items-center gap-4"
     >
-      <h2 className="font-serif text-3xl font-medium sm:text-5xl">
+      <h2 className="font-serif text-4xl font-medium sm:text-5xl">
         {title}
       </h2>
 
