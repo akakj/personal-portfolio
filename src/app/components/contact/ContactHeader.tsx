@@ -9,6 +9,7 @@ export default function ContactHeader() {
 
   return (
     <div className="text-center">
+      {/* Small intro text */}
       <motion.p
         initial={
           reduceMotion
@@ -45,7 +46,49 @@ export default function ContactHeader() {
         A little ✦ magic ✦ begins with hello
       </motion.p>
 
-      <motion.h2
+      {/* Accessible heading */}
+      <h2 className="sr-only">
+        Let&apos;s create something together
+      </h2>
+
+      {/* Mobile heading: simple reveal from the left */}
+      <motion.div
+        aria-hidden="true"
+        initial={
+          reduceMotion
+            ? false
+            : {
+                opacity: 0,
+                x: -24,
+              }
+        }
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.5,
+        }}
+        transition={{
+          duration: reduceMotion ? 0 : 0.7,
+          delay: reduceMotion ? 0 : 0.2,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="
+          font-serif
+          text-4xl
+          font-medium
+          leading-[1.15]
+          sm:hidden
+        "
+      >
+        Let&apos;s create something together
+      </motion.div>
+
+      {/* Tablet / desktop heading: word-by-word animation */}
+      <motion.div
+        aria-hidden="true"
         initial="hidden"
         whileInView="visible"
         viewport={{
@@ -61,7 +104,13 @@ export default function ContactHeader() {
             },
           },
         }}
-        className="font-serif text-4xl font-medium sm:text-5xl"
+        className="
+          hidden
+          font-serif
+          text-5xl
+          font-medium
+          sm:block
+        "
       >
         {headingWords.map((word) => (
           <motion.span
@@ -87,13 +136,18 @@ export default function ContactHeader() {
                 },
               },
             }}
-            className="mr-[0.22em] inline-block last:mr-0"
+            className="
+              mr-[0.22em]
+              inline-block
+              last:mr-0
+            "
           >
             {word}
           </motion.span>
         ))}
-      </motion.h2>
+      </motion.div>
 
+      {/* Supporting text */}
       <motion.p
         initial={
           reduceMotion
