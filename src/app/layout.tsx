@@ -4,6 +4,8 @@ import "./globals.css";
 
 import ThemeProvider from "./components/ui/ThemeProvider";
 
+import { Analytics } from "@vercel/analytics/next";
+
 const fleurDeLeah = Fleur_De_Leah({
   weight: "400",
   subsets: ["latin"],
@@ -40,6 +42,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
