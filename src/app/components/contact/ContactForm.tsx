@@ -254,7 +254,7 @@ export default function ContactForm() {
             rounded-full
 
             border
-            border-[#dda2c373]
+            border-[#dda2c440]
             bg-[#ffcae3]
             px-8
             py-3
@@ -268,7 +268,7 @@ export default function ContactForm() {
             ease-out
 
             hover:-translate-y-1
-            hover:border-[#d58eaf69]
+            hover:border-[#d58eaf3b]
             hover:bg-[#febada]
             hover:text-[#43283c]
             hover:shadow-[0_8px_24px_rgba(217,107,158,0.22)]
