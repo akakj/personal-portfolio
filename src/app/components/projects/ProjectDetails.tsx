@@ -59,7 +59,7 @@ export default function ProjectDetails() {
             Full-stack coding practice platform
           </h4>
 
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-[#755f72] dark:text-purple-200/70 sm:text-base">
+          <p className="hidden sm:block mt-4 max-w-2xl text-sm leading-7 text-[#755f72] dark:text-purple-200/70 sm:text-base">
             Codey is a full-stack coding practice platform for solving
             algorithm problems, executing code and tracking progress. It
             combines an integrated code editor, multi-language execution,

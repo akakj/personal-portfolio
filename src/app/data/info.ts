@@ -4,29 +4,20 @@ export const skills = {
     "JavaScript",
     "Python",
     "C#",
-    "C",
     "Java",
-    "Haskell",
-    "Assembly",
   ],
 
-  "Frameworks & Frontend": ["Next.js", "React", "Tailwind CSS"],
+  "Frontend": ["Next.js", "React", "Tailwind CSS"],
 
-  "Data & APIs": [
-    "Supabase",
-    "AWS",
-    "Azure",
+  "Backend & Data": [
+    "Node.js",
     "PostgreSQL",
-    "SQL",
-    "MongoDB",
-    "DynamoDB",
+    "Supabase",
     "REST APIs",
-    "GraphQL",
   ],
 
-  "Cloud & DevOps": ["AWS", "Azure", "Docker", "CI/CD", "Vercel"],
+  "Infrastructure & Cloud": ["AWS", "Azure", "Docker", "CI/CD"],
 
-  Tools: ["Git", "GitHub"],
 };
 
 export const projects = [
@@ -53,7 +44,6 @@ export const experience = [
       "Deliver interactive tutorials covering programming concepts, debugging and problem-solving techniques.",
       "Mark programming coursework and provide actionable feedback to students.",
       "Collaborate with lecturers to maintain consistent teaching and assessment standards.",
-      "Selected to return as a Functional Programming tutor after previously teaching both Functional Programming and Object-Oriented Programming.",
     ],
   },
 ];
@@ -92,10 +82,6 @@ export const navigation = [
   {
     name: "Experience",
     href: "#experience",
-  },
-  {
-    name: "About",
-    href: "#about",
   },
   {
     name: "Contact",
@@ -161,17 +147,30 @@ export const features = [
 ];
 
 export const categoryStyles = {
-  Languages: {
-    symbol: "✦",
-    heading: "text-[#655080] dark:text-violet-200",
-    container:
-      "border-violet-300/70 bg-violet-50/70 dark:border-violet-800/50 dark:bg-violet-950/15",
-    pill: "border-violet-300/80 bg-violet-50/80 hover:border-violet-400 hover:bg-violet-50 dark:border-violet-700/50 dark:bg-violet-950/30 dark:hover:border-violet-400/60 dark:hover:bg-violet-900/40",
-    sparkle: "text-violet-500 dark:text-violet-300",
-    shadow: "hover:shadow-[0_6px_20px_rgba(139,92,246,0.15)]",
-  },
+ Languages: {
+  symbol: "✦",
 
-  "Frameworks & Frontend": {
+  heading:
+    "text-[#655080] dark:text-emerald-100",
+
+  container:
+    "border-violet-300/70 bg-violet-50/70 \
+     dark:border-emerald-400/30 dark:bg-emerald-950/25",
+
+  pill:
+    "border-violet-300/80 bg-violet-50/80 \
+     hover:border-violet-400 hover:bg-violet-50 \
+     dark:border-emerald-400/40 dark:bg-emerald-950/15 \
+     dark:hover:border-emerald-300/60 dark:hover:bg-emerald-900/15",
+
+  sparkle:
+    "text-violet-500 dark:text-emerald-300",
+
+  shadow:
+    "hover:shadow-[0_6px_20px_rgba(52,211,153,0.11)]",
+},
+
+  "Frontend": {
     symbol: "❋",
     heading: "text-[#70445F] dark:text-rose-200",
     container:
@@ -181,7 +180,7 @@ export const categoryStyles = {
     shadow: "hover:shadow-[0_6px_20px_rgba(190,24,93,0.14)]",
   },
 
-  "Data & APIs": {
+  "Backend & Data": {
     symbol: "◇",
 
     heading: "text-[#405A78] dark:text-blue-200",
@@ -196,7 +195,7 @@ export const categoryStyles = {
     shadow: "hover:shadow-[0_6px_20px_rgba(37,99,235,0.14)]",
   },
 
-  "Cloud & DevOps": {
+  "Infrastructure & Cloud": {
     symbol: "☼",
     heading: "text-[#755b45] dark:text-amber-200",
     container:
@@ -204,16 +203,6 @@ export const categoryStyles = {
     pill: "border-amber-300/80 bg-amber-50/55 hover:border-amber-400 hover:bg-amber-50 dark:border-amber-800/50 dark:bg-amber-950/25 dark:hover:border-amber-400/60 dark:hover:bg-amber-900/35",
     sparkle: "text-amber-700 dark:text-amber-300",
     shadow: "hover:shadow-[0_6px_20px_rgba(245,158,11,0.14)]",
-  },
-
-  Tools: {
-    symbol: "✧",
-    heading: "text-[#536b62] dark:text-emerald-200",
-    container:
-      "border-emerald-300/65 bg-emerald-50/50 dark:border-emerald-900/50 dark:bg-emerald-950/20",
-    pill: "border-emerald-300/75 bg-emerald-50/45 hover:border-emerald-400 hover:bg-emerald-50 dark:border-emerald-800/50 dark:bg-emerald-950/25 dark:hover:border-emerald-400/60 dark:hover:bg-emerald-900/35",
-    sparkle: "text-emerald-700 dark:text-emerald-300",
-    shadow: "hover:shadow-[0_6px_20px_rgba(16,185,129,0.13)]",
   },
 };
 
