@@ -85,7 +85,7 @@ export default function Vine() {
         pointer-events-none
         absolute right-0 top-0 z-0
         hidden h-57.5 w-90
-        xl:block
+        min-[105rem]:block
       "
     >
       <button
